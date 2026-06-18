@@ -1,7 +1,8 @@
+from typing import Any
+
 from pydantic import BaseModel, ConfigDict
 
 from app.models import InputType
-from app.schemas import ConstraintConfig
 
 
 class DSAQuestion(BaseModel):
@@ -11,5 +12,9 @@ class DSAQuestion(BaseModel):
     required: bool = True
     input_type: InputType
     help_text: str | None = None
-    config: ConstraintConfig | None = None
+    config: dict[str, Any] | None = None
     options: list[str] | None = None
+    granularity: str = "general"
+    source_general_id: str | None = None
+    vlopse: str | None = None
+    group_text: str | None = None

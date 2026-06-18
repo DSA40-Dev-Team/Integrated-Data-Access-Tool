@@ -1,0 +1,86 @@
+{
+  "info": {
+    "name": "Pinterest",
+    "platform_information": null,
+    "account_required": false,
+    "application_link": "https://help.pinterest.com/en/landing/researchers-intake-form",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "pinterest-intake",
+        "text": "Pinterest's researcher intake form may require acceptance of platform terms on approval. Review any agreements presented during or after the application process.",
+        "highlights": [
+          "platform terms"
+        ],
+        "links": [
+          {
+            "label": "Pinterest researchers intake form",
+            "url": "https://help.pinterest.com/en/landing/researchers-intake-form"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "Specific legal terms are not published in advance — read and review any terms presented on Pinterest's application or after approval.",
+      "Treat security, funding, and purpose statements in your application as commitments you may be held to."
+    ]
+  },
+  "mappings": {
+    "P1": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "P3": "email-inst",
+    "P4": "org-type",
+    "P5": "org-name",
+    "P7": "org-addr-street",
+    "P8": "org-addr-city",
+    "P9": "org-addr-postcode",
+    "P10": "org-addr-country",
+    "P11": "org-addr-street",
+    "P12": "org-addr-city",
+    "P13": "org-addr-postcode",
+    "P14": "org-addr-country",
+    "P15": {
+      "src": [
+        "data-geoscope",
+        "data-requested",
+        "data-acc-start",
+        "data-acc-end",
+        "data-expl"
+      ],
+      "operation": "make-data-summary"
+    },
+    "P16": {
+      "src": "person-commercial-purpose",
+      "operation": "commercial-independence-and"
+    },
+    "P17": {
+      "src": "funding-received",
+      "operation": "format-funding-sources-text"
+    },
+    "P18": {
+      "src": "purpose-limitation-binary",
+      "operation": "pinterest-purpose-gate"
+    },
+    "P19": {
+      "src": [
+        "research-sysrisk",
+        "research-title",
+        "research-summary"
+      ],
+      "operation": "make-report"
+    },
+    "P20": {
+      "src": [
+        "tom-technical",
+        "tom-organisational"
+      ],
+      "operation": "format-tom-summary"
+    }
+  },
+  "conditions": {}
+}

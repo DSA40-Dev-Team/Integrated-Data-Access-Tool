@@ -1,0 +1,16 @@
+{
+  "fields": [
+    "org-name",
+    "org-type",
+    "org-id",
+    "org-addr-street",
+    "org-addr-city",
+    "org-addr-postcode",
+    "org-addr-state",
+    "org-addr-country",
+    "org-website",
+    "org-commercial-purpose",
+    "org-commercial-evidence-types",
+    "org-commercial-evidence"
+  ]
+}

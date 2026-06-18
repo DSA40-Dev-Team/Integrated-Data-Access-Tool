@@ -32,7 +32,7 @@ def health_check() -> HealthResponse:
             except ValidationError as e:
                 print(f"INVALID VLOPSE CONFIG FOR {vlopse}")
                 print(f"REASON: {e}")
-        mapper = QuestionMapper.from_vlopse_names(vlopses, questions)
+        mapper = QuestionMapper.from_vlopse_names(vlopses, question_service)
         mapper._validate()
         mapping_status = Status.OK
         db.execute(text("SELECT 1"))

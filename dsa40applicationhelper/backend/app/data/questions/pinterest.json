@@ -1,0 +1,210 @@
+[
+  {
+    "id": "P1",
+    "text": "Full legal name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "P2",
+    "text": "Phone",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "P3",
+    "text": "Email",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "P4",
+    "text": "Is this a not-for-profit organization, body, or association?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P5",
+    "text": "Name of the organization",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P6",
+    "text": "Phone",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P7",
+    "text": "Street address",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P8",
+    "text": "City",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P9",
+    "text": "Postal code",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P10",
+    "text": "Country",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "[Global Countries]"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P11",
+    "text": "Street address (where research will be conducted)",
+    "required": false,
+    "input_type": "text",
+    "details": "if different to above\nif research not conducted at org",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P12",
+    "text": "City (where research will be conducted)",
+    "required": false,
+    "input_type": "text",
+    "details": "if different to above\nif research not conducted at org",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P13",
+    "text": "Postal code (where research will be conducted)",
+    "required": false,
+    "input_type": "text",
+    "details": "if different to above\nif research not conducted at org",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P14",
+    "text": "Country (where research will be conducted)",
+    "required": false,
+    "input_type": "selection",
+    "details": "if different to above\nif research not conducted at org",
+    "config": {
+      "type": "selection",
+      "options": [
+        "[Global Countries]"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "P15",
+    "text": "Please share which data set you would like access to and why, including the type of data, the time range and any geographic scope relevant.",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Requested Data"
+  },
+  {
+    "id": "P16",
+    "text": "Are you, your organization, and your research independent from commercial interests?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "P17",
+    "text": "Please diclose the sourcing of funding for the research you are conducting.",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "P18",
+    "text": "Will the data you are requesting be used solely for the purpose of performing research that contributes to the detection, identification and understanding of systemic risks in the European Union (as defined in Article 34(1) of the Digital Services Act)?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "P19",
+    "text": "Include additional context on your research topic and project, how access to the requested data is necessary and proportionate to your research, and how your research will contribute to the detection, identification and understanding of systemic risks in the European Union.",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "P20",
+    "text": "Data Security, Confidentiality, and Privacy",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Data Security"
+  }
+]

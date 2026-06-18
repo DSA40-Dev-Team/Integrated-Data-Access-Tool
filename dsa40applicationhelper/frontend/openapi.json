@@ -156,6 +156,52 @@
         }
       }
     },
+    "/api/platform-field-index": {
+      "get": {
+        "summary": "Platform Field Index",
+        "operationId": "/api/platform-field-index-platform_field_index",
+        "parameters": [
+          {
+            "name": "vlopse",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "Vlopse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/PlatformFieldSource"
+                  },
+                  "title": "Response /Api/Platform-Field-Index-Platform Field Index"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/validate": {
       "post": {
         "summary": "Validate Answers",
@@ -272,6 +318,56 @@
               "items": {
                 "type": "string"
               },
+              "title": "Vlopse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/schemas/{name}": {
+      "get": {
+        "summary": "Get Schema",
+        "operationId": "/api/schemas/{name}-get_schema",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          },
+          {
+            "name": "vlopse",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": [],
               "title": "Vlopse"
             }
           }
@@ -666,25 +762,8 @@
           "config": {
             "anyOf": [
               {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/Selection"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Text"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ISO_3166_1"
-                  }
-                ],
-                "discriminator": {
-                  "propertyName": "type",
-                  "mapping": {
-                    "iso-3166-1": "#/components/schemas/ISO_3166_1",
-                    "selection": "#/components/schemas/Selection",
-                    "text": "#/components/schemas/Text"
-                  }
-                }
+                "additionalProperties": true,
+                "type": "object"
               },
               {
                 "type": "null"
@@ -705,6 +784,44 @@
               }
             ],
             "title": "Options"
+          },
+          "granularity": {
+            "type": "string",
+            "title": "Granularity",
+            "default": "general"
+          },
+          "source_general_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source General Id"
+          },
+          "vlopse": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vlopse"
+          },
+          "group_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group Text"
           }
         },
         "type": "object",
@@ -752,7 +869,7 @@
             "title": "Id"
           },
           "info": {
-            "$ref": "#/components/schemas/PlatformInformation"
+            "$ref": "#/components/schemas/PlatformInformation-Output"
           }
         },
         "type": "object",
@@ -837,11 +954,137 @@
           "date_select",
           "selection",
           "multi_select",
-          "iso-3166-1"
+          "iso-3166-1",
+          "repeatable_group",
+          "composite_group"
         ],
         "title": "InputType"
       },
-      "PlatformInformation": {
+      "MultiSelect": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "multi_select",
+            "title": "Type"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "MultiSelect"
+      },
+      "PlatformDisclaimer": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "highlights": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Highlights",
+            "default": []
+          },
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/PlatformDisclaimerLink"
+            },
+            "type": "array",
+            "title": "Links",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "text"
+        ],
+        "title": "PlatformDisclaimer",
+        "description": "Legal or contractual text the platform form requires; shown as a disclaimer in the helper."
+      },
+      "PlatformDisclaimerLink": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "url"
+        ],
+        "title": "PlatformDisclaimerLink"
+      },
+      "PlatformFieldSource": {
+        "properties": {
+          "vlopse": {
+            "type": "string",
+            "title": "Vlopse"
+          },
+          "platform_id": {
+            "type": "string",
+            "title": "Platform Id"
+          },
+          "platform_text": {
+            "type": "string",
+            "title": "Platform Text"
+          },
+          "general_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "General Ids"
+          },
+          "helper_labels": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Helper Labels"
+          },
+          "helper_section": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Helper Section"
+          }
+        },
+        "type": "object",
+        "required": [
+          "vlopse",
+          "platform_id",
+          "platform_text",
+          "general_ids",
+          "helper_labels"
+        ],
+        "title": "PlatformFieldSource"
+      },
+      "PlatformInformation-Input": {
         "properties": {
           "name": {
             "type": "string",
@@ -868,6 +1111,76 @@
           },
           "modality": {
             "$ref": "#/components/schemas/ApplicationModality"
+          },
+          "disclaimers": {
+            "items": {
+              "$ref": "#/components/schemas/PlatformDisclaimer"
+            },
+            "type": "array",
+            "title": "Disclaimers",
+            "default": []
+          },
+          "term_implications": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Term Implications",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "account_required",
+          "application_link",
+          "modality"
+        ],
+        "title": "PlatformInformation"
+      },
+      "PlatformInformation-Output": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "platform_information": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform Information"
+          },
+          "account_required": {
+            "type": "boolean",
+            "title": "Account Required"
+          },
+          "application_link": {
+            "type": "string",
+            "title": "Application Link"
+          },
+          "modality": {
+            "$ref": "#/components/schemas/ApplicationModality"
+          },
+          "disclaimers": {
+            "items": {
+              "$ref": "#/components/schemas/PlatformDisclaimer"
+            },
+            "type": "array",
+            "title": "Disclaimers",
+            "default": []
+          },
+          "term_implications": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Term Implications",
+            "default": []
           }
         },
         "type": "object",
@@ -951,6 +1264,9 @@
                     "$ref": "#/components/schemas/Selection"
                   },
                   {
+                    "$ref": "#/components/schemas/MultiSelect"
+                  },
+                  {
                     "$ref": "#/components/schemas/Text"
                   },
                   {
@@ -961,6 +1277,7 @@
                   "propertyName": "type",
                   "mapping": {
                     "iso-3166-1": "#/components/schemas/ISO_3166_1",
+                    "multi_select": "#/components/schemas/MultiSelect",
                     "selection": "#/components/schemas/Selection",
                     "text": "#/components/schemas/Text"
                   }
@@ -1011,7 +1328,7 @@
             "title": "Id"
           },
           "info": {
-            "$ref": "#/components/schemas/PlatformInformation"
+            "$ref": "#/components/schemas/PlatformInformation-Input"
           }
         },
         "type": "object",
@@ -1199,6 +1516,9 @@
                     "$ref": "#/components/schemas/Selection"
                   },
                   {
+                    "$ref": "#/components/schemas/MultiSelect"
+                  },
+                  {
                     "$ref": "#/components/schemas/Text"
                   },
                   {
@@ -1209,6 +1529,7 @@
                   "propertyName": "type",
                   "mapping": {
                     "iso-3166-1": "#/components/schemas/ISO_3166_1",
+                    "multi_select": "#/components/schemas/MultiSelect",
                     "selection": "#/components/schemas/Selection",
                     "text": "#/components/schemas/Text"
                   }

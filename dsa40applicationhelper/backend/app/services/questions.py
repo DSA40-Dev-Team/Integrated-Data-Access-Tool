@@ -1,12 +1,16 @@
-from app.database import SessionLocal
-from app.models import DSAQuestion, VLOPSEQuestion
+from app.models import InputType
+from app.services.question_store import (
+    PlatformQuestionRecord,
+    UnifiedQuestionRecord,
+    find_platform_question_global,
+    load_platform_questions,
+    load_unified_questions,
+    save_platform_questions,
+    save_unified_questions,
+)
 
 
 class QuestionService:
-    def __init__(self):
-        # TODO: self, app=.. then app.async session lala
-        pass
-
     def add(
         self,
         id: str | None,
@@ -16,35 +20,29 @@ class QuestionService:
         input_type: str,
         details: str | None,
         config: dict[str, str] | None = None,
-    ):
-        question = VLOPSEQuestion(
-            id=id,
-            text=text,
-            vlopse=vlopse,
-            required=required,
-            input_type=input_type,
-            details=details,
-            config=config,
+    ) -> None:
+        records = load_platform_questions(vlopse)
+        qid = id or ""
+        if any(r.id == qid for r in records):
+            raise ValueError(f"Duplicate platform question id: {qid}")
+        records.append(
+            PlatformQuestionRecord(
+                id=qid,
+                text=text,
+                vlopse=vlopse,
+                required=required,
+                input_type=InputType(input_type),
+                details=details,
+                config=config,
+            )
         )
-        with SessionLocal() as db:
-            db.add(question)
-            db.commit()
+        save_platform_questions(vlopse, records)
 
-    def get_all_for_vlopse(self, vlopse: str):
-        with SessionLocal() as db:
-            result = (
-                db.query(VLOPSEQuestion).where(VLOPSEQuestion.vlopse == vlopse).all()
-            )
+    def get_all_for_vlopse(self, vlopse: str) -> list[PlatformQuestionRecord]:
+        return load_platform_questions(vlopse)
 
-            return result
-
-    def get(self, question_id: str):
-        with SessionLocal() as db:
-            question = (
-                db.query(VLOPSEQuestion).where(VLOPSEQuestion.id == question_id).first()
-            )
-
-            return question
+    def get(self, question_id: str) -> PlatformQuestionRecord | None:
+        return find_platform_question_global(question_id)
 
     def add_unified(
         self,
@@ -53,30 +51,33 @@ class QuestionService:
         input_type: str,
         help_text: str | None,
         config: dict[str, str] | None = None,
-    ):
-        question = DSAQuestion(
-            id=id, text=text, input_type=input_type, help_text=help_text, config=config
-        )
-        with SessionLocal() as db:
-            db.add(question)
-            db.commit()
-
-    def get_unified(self, question_id: str):
-        with SessionLocal() as db:
-            question = (
-                db.query(DSAQuestion).where(DSAQuestion.id == question_id).first()
+    ) -> None:
+        records = load_unified_questions()
+        qid = id or ""
+        if any(r.id == qid for r in records):
+            raise ValueError(f"Duplicate unified question id: {qid}")
+        records.append(
+            UnifiedQuestionRecord(
+                id=qid,
+                text=text,
+                input_type=InputType(input_type),
+                help_text=help_text,
+                config=config,
             )
+        )
+        save_unified_questions(records)
 
-            return question
+    def get_unified(self, question_id: str) -> UnifiedQuestionRecord | None:
+        for record in load_unified_questions():
+            if record.id == question_id:
+                return record
+        return None
 
-    def get_all_unified_for(self, question_ids: list[str]):
-        with SessionLocal() as db:
-            result = db.query(DSAQuestion).where(DSAQuestion.id.in_(question_ids)).all()
+    def get_all_unified_for(
+        self, question_ids: list[str]
+    ) -> list[UnifiedQuestionRecord]:
+        wanted = set(question_ids)
+        return [q for q in load_unified_questions() if q.id in wanted]
 
-            return result
-
-    def get_all_unified(self):
-        with SessionLocal() as db:
-            question = db.query(DSAQuestion).all()
-
-            return question
+    def get_all_unified(self) -> list[UnifiedQuestionRecord]:
+        return load_unified_questions()

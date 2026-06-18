@@ -1,0 +1,122 @@
+{
+  "info": {
+    "name": "LinkedIn",
+    "platform_information": "https://www.linkedin.com/help/linkedin/answer/a1645616",
+    "account_required": false,
+    "application_link": "https://www.linkedin.com/help/linkedin/ask/DSA",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "linkedin-lrt",
+        "text": "If approved, your use of LinkedIn Research Tools and Research Data is governed by the Additional Terms for the LinkedIn Research Tools Program, incorporated into the LinkedIn API Terms of Use.",
+        "highlights": [
+          "LinkedIn Research Tools Program",
+          "API Terms of Use"
+        ],
+        "links": [
+          {
+            "label": "LinkedIn Research API Program Terms",
+            "url": "https://www.linkedin.com/legal/l/research-api-terms"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "Research Data may only be used for the LinkedIn-approved Research Project — changes require notification.",
+      "Individual personal data may be stored for at most 24 hours; other data for at most one year.",
+      "Stored data must be deleted within 10 days on LinkedIn's reasonable written request.",
+      "Raw Research Data cannot be shared; only analysed results via Research Work Product to end users.",
+      "Public communications mentioning LinkedIn require prior written approval.",
+      "LinkedIn is not obligated to keep your project confidential and may support competing researchers.",
+      "Either party may terminate for convenience with 30 days' notice (LinkedIn does not require indemnity)."
+    ]
+  },
+  "mappings": {
+    "L1": "first-name",
+    "L2": "last-name",
+    "L3": "email-inst",
+    "L4": {
+      "operation": "literal-yes"
+    },
+    "L5": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "L6": "email-inst",
+    "L7": "org-name",
+    "L8": {
+      "src": [
+        "org-addr-street",
+        "org-addr-city",
+        "org-addr-postcode"
+      ],
+      "operation": "join-comma"
+    },
+    "L9": "org-addr-country",
+    "L10": "org-website",
+    "L11": "profile-inst",
+    "L12": "profile-platform",
+    "L13": "org-role",
+    "L14": "org-department",
+    "L15": "collab-list",
+    "L16": {
+      "src": "funding-received",
+      "operation": "format-funding-sources-text"
+    },
+    "L17": "prev-experience",
+    "L18": "research-title",
+    "L19": {
+      "src": [
+        "research-title",
+        "research-summary",
+        "research-question",
+        "research-method",
+        "research-outcomes",
+        "research-timeline",
+        "data-requested"
+      ],
+      "operation": "make-report"
+    },
+    "L20": "research-sysrisk",
+    "L21": {
+      "src": [
+        "data-acc-start",
+        "data-acc-end"
+      ],
+      "operation": "make-duration"
+    },
+    "L22": "data-accmod",
+    "L23": "research-publication-bin",
+    "L24": "research-commercial-purpose",
+    "L25": {
+      "src": [
+        "tom-storage-start",
+        "tom-storage-end"
+      ],
+      "operation": "make-duration"
+    },
+    "L26": "tom-storagelocation",
+    "L27": "collab-binary",
+    "L28": "collab-list",
+    "L29": {
+      "src": [
+        "tom-technical",
+        "tom-organisational"
+      ],
+      "operation": "format-tom-summary"
+    },
+    "L30": "tom-responsible"
+  },
+  "conditions": {
+    "L28": [
+      {
+        "question_id": "L27",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  }
+}

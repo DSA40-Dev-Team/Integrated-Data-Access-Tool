@@ -2,102 +2,1358 @@
   {
     "id": "first-name",
     "text_en": "First Name",
-    "category": "contact-details",
     "type": "text",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "contact-details"
   },
   {
     "id": "last-name",
     "text_en": "Last Name",
-    "category": "contact-details",
     "type": "text",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "contact-details"
   },
   {
-    "id": "email",
-    "text_en": "Email Address",
+    "id": "pref-name",
+    "text_en": "Preferred Name",
+    "type": "text",
+    "granularity": "general",
+    "category": "contact-details"
+  },
+  {
+    "id": "email-inst",
+    "text_en": "Institutional Email Address",
+    "type": "text",
+    "granularity": "general",
+    "category": "contact-details",
+    "help": "Email address associated with your academic institution or organisation."
+  },
+  {
+    "id": "researcher-addr-country",
+    "text_en": "Your Country",
+    "type": "iso-3166-1",
+    "granularity": "general",
+    "category": "contact-details",
+    "config": {
+      "type": "iso-3166-1"
+    }
+  },
+  {
+    "id": "researcher-addr-state",
+    "text_en": "Your State or Province",
+    "type": "text",
+    "granularity": "general",
+    "category": "contact-details"
+  },
+  {
+    "id": "researcher-addr-city",
+    "text_en": "Your City",
+    "type": "text",
+    "granularity": "general",
+    "category": "contact-details"
+  },
+  {
+    "id": "profile-platform",
+    "text_en": "Link to Profile on <PLATFORM_NAME>",
+    "type": "text",
+    "granularity": "platform_specific",
+    "category": "contact-details"
+  },
+  {
+    "id": "profile-inst",
+    "text_en": "Link to Institutional Profile",
+    "type": "text",
+    "granularity": "general",
+    "category": "contact-details"
+  },
+  {
+    "id": "orcid",
+    "text_en": "ORCID iD",
+    "type": "orcid",
+    "granularity": "general",
     "category": "collaboration",
-    "type": "text",
-    "granularity": "general"
-  },
-  {
-    "id": "birthday",
-    "text_en": "Birthday",
-    "category": "contact-details",
-    "type": "date_select",
-    "granularity": "general"
+    "config": {
+      "type": "orcid"
+    }
   },
   {
     "id": "cv",
     "text_en": "Curriculum Vitae",
-    "category": "qualifications",
     "type": "file_upload",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "qualifications"
+  },
+  {
+    "id": "discipline-expertise",
+    "text_en": "Discipline or Area of Expertise",
+    "type": "selection",
+    "granularity": "general",
+    "category": "previous-experience",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Business communication",
+        "Civic communication",
+        "Climate and environment",
+        "Computer science",
+        "Coordinated inauthentic behavior",
+        "Digital culture",
+        "Education",
+        "Election monitoring",
+        "Fact-checking",
+        "Hate speech and extremism",
+        "Health communication",
+        "Journalism, news and media",
+        "Marketing",
+        "Other",
+        "Political communication",
+        "Public health",
+        "Science communication",
+        "Trust and safety"
+      ]
+    },
+    "options": [
+      "Business communication",
+      "Civic communication",
+      "Climate and environment",
+      "Computer science",
+      "Coordinated inauthentic behavior",
+      "Digital culture",
+      "Education",
+      "Election monitoring",
+      "Fact-checking",
+      "Hate speech and extremism",
+      "Health communication",
+      "Journalism, news and media",
+      "Marketing",
+      "Other",
+      "Political communication",
+      "Public health",
+      "Science communication",
+      "Trust and safety"
+    ]
+  },
+  {
+    "id": "org-name",
+    "text_en": "Organisation Name",
+    "type": "text",
+    "granularity": "general",
+    "category": "affiliation"
+  },
+  {
+    "id": "org-department",
+    "text_en": "Department in Organisation",
+    "type": "text",
+    "granularity": "general",
+    "category": "affiliation"
   },
   {
     "id": "org-type",
     "text_en": "Type of Organisation",
+    "type": "selection",
+    "granularity": "general",
     "category": "affiliation",
-    "type": "text",
-    "granularity": "general"
+    "help": "Organisation category (e.g. university, NGO, government agency, EU not-for-profit research body).",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Academic institution",
+        "Government agency",
+        "Independent research organization (IRO)",
+        "Intergovernmental organization (IGO)",
+        "Non-governmental organization (NGO)",
+        "Not-for-profit body, organization or association (based in the EU 27 Member States only)",
+        "Other"
+      ]
+    },
+    "options": [
+      "Academic institution",
+      "Government agency",
+      "Independent research organization (IRO)",
+      "Intergovernmental organization (IGO)",
+      "Non-governmental organization (NGO)",
+      "Not-for-profit body, organization or association (based in the EU 27 Member States only)",
+      "Other"
+    ]
   },
   {
     "id": "org-id",
     "text_en": "Organisation's Registration Number",
-    "category": "affiliation",
     "type": "text",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "affiliation"
   },
   {
     "id": "org-addr-street",
     "text_en": "Street Address",
-    "category": "affiliation",
     "type": "text",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "affiliation"
+  },
+  {
+    "id": "org-addr-city",
+    "text_en": "City",
+    "type": "text",
+    "granularity": "general",
+    "category": "affiliation"
+  },
+  {
+    "id": "org-addr-postcode",
+    "text_en": "Postcode",
+    "type": "text",
+    "granularity": "general",
+    "category": "affiliation"
+  },
+  {
+    "id": "org-addr-state",
+    "text_en": "State",
+    "type": "text",
+    "granularity": "general",
+    "category": "affiliation"
+  },
+  {
+    "id": "org-addr-country",
+    "text_en": "Country",
+    "type": "iso-3166-1",
+    "granularity": "general",
+    "category": "affiliation",
+    "config": {
+      "type": "iso-3166-1"
+    }
+  },
+  {
+    "id": "org-website",
+    "text_en": "Organisation Website",
+    "type": "text",
+    "granularity": "general",
+    "category": "affiliation"
+  },
+  {
+    "id": "org-role",
+    "text_en": "Role in the Organisation",
+    "type": "selection",
+    "granularity": "general",
+    "category": "affiliation",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Assistant professor",
+        "Associate professor",
+        "Independent researcher",
+        "Lecturer",
+        "Master's student",
+        "Other",
+        "PhD student",
+        "Postdoctoral fellow",
+        "Professor",
+        "Staff researcher"
+      ]
+    },
+    "options": [
+      "Assistant professor",
+      "Associate professor",
+      "Independent researcher",
+      "Lecturer",
+      "Master's student",
+      "Other",
+      "PhD student",
+      "Postdoctoral fellow",
+      "Professor",
+      "Staff researcher"
+    ]
+  },
+  {
+    "id": "org-evidence",
+    "text_en": "Evidence for Affiliation",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "affiliation"
+  },
+  {
+    "id": "primary-person",
+    "text_en": "About You",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "contact-details",
+    "help": "Contact details, qualifications, prior platform experience, and personal independence from commercial interests.",
+    "config": {
+      "type": "composite_group",
+      "schema": "person-profile"
+    }
+  },
+  {
+    "id": "primary-organisation",
+    "text_en": "Your Organisation",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "affiliation",
+    "help": "Institution details, not-for-profit status, and organisational independence from commercial interests.",
+    "config": {
+      "type": "composite_group",
+      "schema": "organisation-profile"
+    }
+  },
+  {
+    "id": "primary-affiliation",
+    "text_en": "Your Affiliation",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "affiliation",
+    "help": "Complete the fields below with your role, department, and evidence linking you to your organisation.",
+    "config": {
+      "type": "composite_group",
+      "schema": "primary-affiliation-profile"
+    }
+  },
+  {
+    "id": "research-project",
+    "text_en": "Research Project",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "research-project",
+    "help": "Describe the research you are applying for.",
+    "config": {
+      "type": "composite_group",
+      "schema": "research-project-profile"
+    }
+  },
+  {
+    "id": "data-request",
+    "text_en": "Data Request",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "requested-data",
+    "config": {
+      "type": "composite_group",
+      "schema": "data-request-profile"
+    }
+  },
+  {
+    "id": "security-tom",
+    "text_en": "Data Security",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "data-security",
+    "help": "Describe how you protect platform data: technical and organisational measures, storage, access controls, and purpose limitation.",
+    "config": {
+      "type": "composite_group",
+      "schema": "security-tom-profile"
+    }
+  },
+  {
+    "id": "funding",
+    "text_en": "Funding",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Indicate whether you received funding. When yes, add structured funding entries below or summarise sources in free text.",
+    "config": {
+      "type": "composite_group",
+      "schema": "funding-profile"
+    }
+  },
+  {
+    "id": "collaboration",
+    "text_en": "Collaboration",
+    "type": "composite_group",
+    "granularity": "general",
+    "category": "collaboration",
+    "help": "Whether you collaborate on this project and related details. Team members and shared organisations are collected separately when collaboration applies.",
+    "config": {
+      "type": "composite_group",
+      "schema": "collaboration-profile"
+    }
+  },
+  {
+    "id": "funding-entries",
+    "text_en": "Funding Sources (Structured)",
+    "type": "repeatable_group",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Add each funding source with amounts, grant year, duration, and terms. Used for detailed platform disclosures (Apple, Google).",
+    "config": {
+      "type": "repeatable_group",
+      "schema": "funding-entry-profile",
+      "min_items": 0,
+      "item_label": "Funding source"
+    }
   },
   {
     "id": "collab-binary",
     "text_en": "Are You Collaborating on This Project?",
-    "category": "collaboration",
     "type": "selection",
-    "options": ["Yes", "No"],
-    "granularity": "general"
+    "granularity": "general",
+    "category": "collaboration",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
   },
   {
     "id": "collab-list",
     "text_en": "Name and Organization of Other Researchers Involved",
-    "category": "collaboration",
     "type": "text",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "collaboration",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 4
+    }
+  },
+  {
+    "id": "team-organisations",
+    "text_en": "Organisations on This Application",
+    "type": "repeatable_group",
+    "granularity": "general",
+    "category": "collaboration",
+    "help": "Add institutions shared by team members. Your own organisation can be selected when adding affiliations without re-entering it here.",
+    "config": {
+      "type": "repeatable_group",
+      "schema": "organisation-profile",
+      "min_items": 0,
+      "item_label": "Organisation"
+    }
+  },
+  {
+    "id": "collab-researchers",
+    "text_en": "Additional Researchers on the Team",
+    "type": "repeatable_group",
+    "granularity": "general",
+    "category": "collaboration",
+    "help": "Add each collaborator with their affiliations. Required when applying to platforms that need full team details (e.g. Apple, Meta). This replaces the simple collaborator list for those platforms and is projected into basic platform exports when needed.",
+    "config": {
+      "type": "repeatable_group",
+      "schema": "team-member",
+      "min_items": 0,
+      "item_label": "Researcher"
+    }
   },
   {
     "id": "collab-lead",
     "text_en": "Are You the Principal Researcher in the Collaboration?",
-    "category": "collaboration",
     "type": "selection",
-    "options": ["Yes", "No"],
-    "granularity": "general"
+    "granularity": "general",
+    "category": "collaboration",
+    "config": {
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "type": "selection"
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
   },
   {
     "id": "collab-lead-firstname",
     "text_en": "Principal Researcher's First Name",
-    "category": "collaboration",
     "type": "text",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "collaboration"
   },
   {
     "id": "collab-lead-lastname",
     "text_en": "Principal Researcher's Last Name",
-    "category": "collaboration",
     "type": "text",
-    "granularity": "general"
+    "granularity": "general",
+    "category": "collaboration"
   },
   {
-    "id": "commercial-purpose",
-    "text_en": "Independence from Commercial Interests",
-    "category": "funding-commercial-interests",
+    "id": "collab-share-binary",
+    "text_en": "Do You Plan to Share the Data with Other Third Parties?",
     "type": "selection",
-    "options": ["Yes", "No"],
-    "granularity": "general"
+    "granularity": "general",
+    "category": "collaboration",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "collab-share",
+    "text_en": "Please Specify the Third Party",
+    "type": "text",
+    "granularity": "general",
+    "category": "collaboration"
+  },
+  {
+    "id": "person-commercial-purpose",
+    "text_en": "Personal Independence from Commercial Interests",
+    "type": "selection",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Whether you personally are independent of commercial interests in the conduct of this research (e.g. employment ties, consulting, business associations).",
+    "config": {
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "type": "selection"
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "org-commercial-purpose",
+    "text_en": "Organisational Independence from Commercial Interests",
+    "type": "selection",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Whether your employing or affiliated organisation is independent of commercial interests (mission, governance, funding model, ties to industry).",
+    "config": {
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "type": "selection"
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "org-commercial-evidence-types",
+    "text_en": "Types of Evidence for Organisational Independence from Commercial Interests",
+    "type": "multi_select",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Select the kinds of evidence you will provide (e.g. for Google G25). Upload the consolidated documents in the field below.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "URL for pages on your organization's website confirming independence from commercial interests",
+        "Articles of incorporation for your organization",
+        "Certificate of registration for your organization issued by the appropriate government agency",
+        "Official letter certifying your organization's independent status",
+        "Founding legislation or executive order to create your organization",
+        "Tax-exemption certification",
+        "Annual report for your organization confirming independent status",
+        "Bylaws of your organization confirming independent status",
+        "Reports of third-party certification or external audits proving independence",
+        "Other [free form]"
+      ],
+      "multiple": true
+    }
+  },
+  {
+    "id": "org-commercial-evidence",
+    "text_en": "Evidence for Organisational Independence from Commercial Interests",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Consolidated PDF or document bundle supporting organisational independence from commercial interests (e.g. Google G26)."
+  },
+  {
+    "id": "funding-evidence",
+    "text_en": "Supporting Evidence for Funding Sources",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Optional consolidated PDF supporting your funding disclosure (e.g. Google G28)."
+  },
+  {
+    "id": "research-commercial-purpose",
+    "text_en": "Research Free of Commercial Purpose",
+    "type": "selection",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Whether the research itself is conducted without commercial purpose or industry-driven aims.",
+    "config": {
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "type": "selection"
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "funding-sources",
+    "text_en": "Funding Sources (Summary)",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Free-text summary when structured funding entries are not used, or to add context alongside them."
+  },
+  {
+    "id": "funding-received",
+    "text_en": "Did You Receive Funding for This Research?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "funding-source-name",
+    "text_en": "Funding Source Name",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests"
+  },
+  {
+    "id": "funding-source-type",
+    "text_en": "Funding Source Type",
+    "type": "selection",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Self-funded (by your organization)",
+        "Government agencies",
+        "Private sector organizations",
+        "Academic or research institutions",
+        "Non-profit or philanthropic entities",
+        "Other third parties"
+      ]
+    },
+    "options": [
+      "Self-funded (by your organization)",
+      "Government agencies",
+      "Private sector organizations",
+      "Academic or research institutions",
+      "Non-profit or philanthropic entities",
+      "Other third parties"
+    ]
+  },
+  {
+    "id": "funding-amount",
+    "text_en": "Funding Amount",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Amount in EUR or your reporting currency."
+  },
+  {
+    "id": "funding-grant-year",
+    "text_en": "Grant Year",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests"
+  },
+  {
+    "id": "funding-duration",
+    "text_en": "Funding Duration",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "e.g. 2024\u20132027 or 36 months."
+  },
+  {
+    "id": "funding-percentage",
+    "text_en": "Approximate Share of Total Funding",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "e.g. 40% \u2014 used for Apple funding breakdown."
+  },
+  {
+    "id": "funding-terms",
+    "text_en": "Funding Terms",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Conditions, reporting obligations, or restrictions attached to this funding."
+  },
+  {
+    "id": "funding-notes",
+    "text_en": "Funding Notes",
+    "type": "text",
+    "granularity": "general",
+    "category": "funding-commercial-interests",
+    "help": "Optional supporting detail or evidence references."
+  },
+  {
+    "id": "research-title",
+    "text_en": "Title",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project"
+  },
+  {
+    "id": "research-keywords",
+    "text_en": "Keywords",
+    "type": "multi_select",
+    "granularity": "general",
+    "category": "research-project"
+  },
+  {
+    "id": "research-summary",
+    "text_en": "Summary",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 5
+    }
+  },
+  {
+    "id": "research-summary-litreview",
+    "text_en": "Literature Review",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 4
+    }
+  },
+  {
+    "id": "research-question",
+    "text_en": "Research Questions",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 3
+    }
+  },
+  {
+    "id": "research-method",
+    "text_en": "Methods",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 5
+    }
+  },
+  {
+    "id": "research-sysrisk",
+    "text_en": "Systemic Risk Contribution",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "help": "Explain how the research relates to detection, identification, or understanding of systemic risks in the Union under DSA Article 34(1). Reference specific risk categories where applicable.",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 5
+    }
+  },
+  {
+    "id": "research-sysrisk-binary",
+    "text_en": "Will Your Research Contribute to Understanding Systemic Risks in the EU?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "research-sysrisk-categories",
+    "text_en": "Which Systemic Risk(s) Are You Investigating?",
+    "type": "multi_select",
+    "granularity": "general",
+    "category": "research-project",
+    "help": "Select all risk categories your research investigates (Google Search applications).",
+    "config": {
+      "type": "multi_select",
+      "options": [
+        "Illegal content",
+        "Fundamental rights",
+        "Civic discourse and electoral processes, and public security",
+        "Gender-based violence, public health, minors and physical and mental well-being"
+      ]
+    }
+  },
+  {
+    "id": "research-outcomes",
+    "text_en": "Planned Research Outcomes",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 3
+    }
+  },
+  {
+    "id": "research-citations",
+    "text_en": "Citations",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 3
+    }
+  },
+  {
+    "id": "research-start",
+    "text_en": "Research Start Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "research-project"
+  },
+  {
+    "id": "research-end",
+    "text_en": "Research End Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "research-project"
+  },
+  {
+    "id": "research-timeline",
+    "text_en": "Research Timeline",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 3
+    }
+  },
+  {
+    "id": "research-publication",
+    "text_en": "How Do You Plan to Publish Your Research?",
+    "type": "text",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 3
+    }
+  },
+  {
+    "id": "research-publication-bin",
+    "text_en": "Do You Plan to Publish Your Research?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "research-project",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "research-ethics",
+    "text_en": "Evidence of Ethics Approval",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "research-project"
+  },
+  {
+    "id": "research-ethics-irb-us",
+    "text_en": "IRB or Ethics Exemption Document (US Academic)",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "research-project",
+    "help": "For academic applicants in the US and its territories (TikTok T11)."
+  },
+  {
+    "id": "research-ethics-irb-eea",
+    "text_en": "IRB or Ethics Exemption Document (EEA Academic)",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "research-project",
+    "help": "For academic applicants in the EEA/UK/Switzerland when requested data excludes U18 content (TikTok T13)."
+  },
+  {
+    "id": "research-docs",
+    "text_en": "Research Proposal",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "research-project"
+  },
+  {
+    "id": "meta-mcl-api-binary",
+    "text_en": "Also apply for Meta Content Library API (via secure computing platform)",
+    "type": "selection",
+    "granularity": "platform_specific",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "meta-secure-platform",
+    "text_en": "Secure computing platform for MCL API",
+    "type": "selection",
+    "granularity": "platform_specific",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Meta Secure Research Environment",
+        "SOMAR Virtual Data Enclave"
+      ]
+    },
+    "options": [
+      "Meta Secure Research Environment",
+      "SOMAR Virtual Data Enclave"
+    ]
+  },
+  {
+    "id": "tech-client",
+    "text_en": "Google Account for GCP Project (Maps)",
+    "type": "text",
+    "granularity": "platform_specific",
+    "category": "technical",
+    "help": "Email address of the Google Account used to fill this form and to create the GCP project for Maps data access."
+  },
+  {
+    "id": "tech-client-scrape-method",
+    "text_en": "How do you plan to scrape the service?",
+    "type": "selection",
+    "granularity": "platform_specific",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Client-Side Scraping",
+        "Third-Party (3P) Tools",
+        "Browser Plug-Ins",
+        "Other"
+      ]
+    },
+    "options": [
+      "Client-Side Scraping",
+      "Third-Party (3P) Tools",
+      "Browser Plug-Ins",
+      "Other"
+    ]
+  },
+  {
+    "id": "tech-client-ip-type",
+    "text_en": "What type of IP address will you use for scraping?",
+    "type": "selection",
+    "granularity": "platform_specific",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "IPv4",
+        "IPv6",
+        "None"
+      ]
+    },
+    "options": [
+      "IPv4",
+      "IPv6",
+      "None"
+    ]
+  },
+  {
+    "id": "tech-client-project-numbers",
+    "text_en": "API Client Project Numbers",
+    "type": "text",
+    "granularity": "general",
+    "category": "technical",
+    "help": "Comma-separated Google Cloud project numbers for each API client (YouTube researcher certification)."
+  },
+  {
+    "id": "tech-client-visibility",
+    "text_en": "Is the API Client Publicly or Privately Available?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Publicly accessible",
+        "Internal use only"
+      ]
+    },
+    "options": [
+      "Publicly accessible",
+      "Internal use only"
+    ]
+  },
+  {
+    "id": "tech-client-public-link",
+    "text_en": "Public API Client Link",
+    "type": "text",
+    "granularity": "general",
+    "category": "technical"
+  },
+  {
+    "id": "tech-client-demo-access",
+    "text_en": "Demo Account and Access Instructions",
+    "type": "text",
+    "granularity": "general",
+    "category": "technical",
+    "help": "If login is required, provide a demo account and instructions to access the API client."
+  },
+  {
+    "id": "tech-client-commercializes",
+    "text_en": "Does the API Client Commercialize YouTube Data?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "tech-client-multi-project",
+    "text_en": "Does the API Client Use Multiple Projects?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "tech-client-cross-platform",
+    "text_en": "Does the API Client Display Data Across Multiple Platforms?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "technical",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "tech-client-implementation-docs",
+    "text_en": "API Client Implementation Documents",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "technical",
+    "help": "Design documents, screencasts, or other evidence of YouTube API integration (max 10MB)."
+  },
+  {
+    "id": "tech-client-ip",
+    "text_en": "Static IP for Scraping",
+    "type": "text",
+    "granularity": "platform_specific",
+    "category": "technical"
+  },
+  {
+    "id": "tech-client-token",
+    "text_en": "Product Token",
+    "type": "text",
+    "granularity": "platform_specific",
+    "category": "technical"
+  },
+  {
+    "id": "data-requested",
+    "text_en": "Data Requested",
+    "type": "text",
+    "granularity": "platform_specific",
+    "category": "requested-data",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 5
+    }
+  },
+  {
+    "id": "data-requested-U18",
+    "text_en": "Does Your Research Require Access to Data for Users Under the Age of 18?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "requested-data",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "data-accmod",
+    "text_en": "Through Which Modality Do You Want to Access the Data?",
+    "type": "multi_select",
+    "granularity": "general",
+    "category": "requested-data"
+  },
+  {
+    "id": "data-acc-start",
+    "text_en": "Data Access Start Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "requested-data"
+  },
+  {
+    "id": "data-acc-end",
+    "text_en": "Data Access End Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "requested-data"
+  },
+  {
+    "id": "data-geoscope",
+    "text_en": "Geographical Scope of Requested Data",
+    "type": "text",
+    "granularity": "general",
+    "category": "requested-data"
+  },
+  {
+    "id": "data-timescope-start",
+    "text_en": "Requested Data Period Start Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "requested-data"
+  },
+  {
+    "id": "data-timescope-end",
+    "text_en": "Requested Data Period End Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "requested-data"
+  },
+  {
+    "id": "data-expl",
+    "text_en": "Justification for Requested Data",
+    "type": "text",
+    "granularity": "general",
+    "category": "requested-data",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 5
+    }
+  },
+  {
+    "id": "data-refresh",
+    "text_en": "How Often Is Data Refreshed?",
+    "type": "text",
+    "granularity": "general",
+    "category": "requested-data"
+  },
+  {
+    "id": "prev-experience",
+    "text_en": "Have You Applied for Access with <PLATFORM_NAME> Before?",
+    "type": "selection",
+    "granularity": "platform_specific",
+    "category": "previous-experience",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "prev-experience-detail",
+    "text_en": "Previous Application Details for <PLATFORM_NAME>",
+    "type": "text",
+    "granularity": "platform_specific",
+    "category": "previous-experience",
+    "help": "Briefly describe your previous application with this platform.",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 3
+    }
+  },
+  {
+    "id": "security-capable-binary",
+    "text_en": "Can Your Organisation Meet Data Security and GDPR Requirements?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "data-security",
+    "help": "Whether your organisation can fulfil applicable data security and confidentiality obligations.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No",
+        "Not Sure"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No",
+      "Not Sure"
+    ]
+  },
+  {
+    "id": "security-capable-evidence",
+    "text_en": "Evidence of GDPR / Data Security Capability",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "data-security",
+    "help": "Supporting documents for organisational data security capability (e.g. Google G30: GDPR certification, independent assessor report)."
+  },
+  {
+    "id": "purpose-limitation-binary",
+    "text_en": "Will Requested Data Be Used Only for This Research?",
+    "type": "selection",
+    "granularity": "general",
+    "category": "data-security",
+    "help": "Confirm the data will not be used outside the research described in your application.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "options": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": "tom-storage-start",
+    "text_en": "Data Storage Start Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "data-security"
+  },
+  {
+    "id": "tom-storage-end",
+    "text_en": "Data Storage End Date",
+    "type": "date_select",
+    "granularity": "general",
+    "category": "data-security"
+  },
+  {
+    "id": "tom-storagelocation",
+    "text_en": "Data Storage Location",
+    "type": "text",
+    "granularity": "general",
+    "category": "data-security"
+  },
+  {
+    "id": "tom-purposelimit",
+    "text_en": "Evidence of Ensuring Purpose Limitation (Legacy)",
+    "type": "text",
+    "granularity": "general",
+    "category": "data-security",
+    "help": "Describe other intended uses of the data or safeguards when sole research use does not apply."
+  },
+  {
+    "id": "tom-technical",
+    "text_en": "Technical Measures",
+    "type": "text",
+    "granularity": "general",
+    "category": "data-security",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 4
+    }
+  },
+  {
+    "id": "tom-organisational",
+    "text_en": "Organisational Measures",
+    "type": "text",
+    "granularity": "general",
+    "category": "data-security",
+    "config": {
+      "type": "text",
+      "multiline": true,
+      "rows": 4
+    }
+  },
+  {
+    "id": "tom-responsible",
+    "text_en": "Who Is Responsible for Compliance with GDPR?",
+    "type": "text",
+    "granularity": "general",
+    "category": "data-security"
+  },
+  {
+    "id": "tom-evidence",
+    "text_en": "Evidence of Technical and Organisational Measures",
+    "type": "file_upload",
+    "granularity": "general",
+    "category": "data-security"
   }
 ]

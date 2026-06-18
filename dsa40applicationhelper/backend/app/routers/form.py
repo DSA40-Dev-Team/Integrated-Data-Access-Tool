@@ -58,6 +58,24 @@ async def applicable_questions(vlopse: list[str] = Query(...)) -> list[DSAQuesti
     response: list[DSAQuestion] = []
     for req, q in qs:
         res = DSAQuestion.model_validate(q)
+        if q.granularity == "platform_specific" and "__" in q.id:
+            general_id, scoped_vlopse = q.id.rsplit("__", 1)
+            res.source_general_id = general_id
+            res.vlopse = scoped_vlopse
+            unified = question_service.get_unified(general_id)
+            if unified is not None:
+                from app.core.config import get_vlopse_configuration_for
+                from app.core.platform_specific import (
+                    format_platform_placeholder,
+                    vlopses_mapping_general,
+                )
+
+                mapped = vlopses_mapping_general(vlopse, general_id)
+                platform_names = [
+                    get_vlopse_configuration_for(v).info.name for v in mapped
+                ]
+                res.group_text = format_platform_placeholder(unified.text, platform_names)
+        res.granularity = q.granularity or "general"
         opts = form_service.compute_options(q, vlopse)
         if opts is not None and res.options is None:
             res.options = opts
@@ -101,6 +119,83 @@ class ValidationResponse(BaseModel):
     kind: Literal["validation", "transformation"]
 
 
+class PlatformFieldSource(BaseModel):
+    vlopse: str
+    platform_id: str
+    platform_text: str
+    general_ids: list[str]
+    helper_labels: list[str]
+    helper_section: str | None = None
+
+
+_COMPOSITE_SECTION_LABELS: dict[str, str] = {
+    "primary-person": "About you",
+    "primary-organisation": "Organisation",
+    "primary-affiliation": "Organisation",
+    "research-project": "Research project",
+    "data-request": "Data request",
+    "security-tom": "Security & TOM",
+    "collaboration": "Collaboration",
+    "funding": "Funding",
+    "funding-entries": "Funding",
+    "team-organisations": "Collaboration",
+    "collab-researchers": "Collaboration",
+}
+
+
+@router.get("/api/platform-field-index")
+async def platform_field_index(
+    vlopse: list[str] = Query(...),
+) -> dict[str, PlatformFieldSource]:
+    from app.core.conditions_util import general_ids_from_mapping
+    from app.core.config import get_vlopse_configuration_for
+    from app.core.schema_registry import composite_owner_for_field
+
+    unified = {q.id: q.text for q in question_service.get_all_unified()}
+    index: dict[str, PlatformFieldSource] = {}
+
+    for vlopse_name in vlopse:
+        config = get_vlopse_configuration_for(vlopse_name)
+        for platform_id, entry in config.mappings.items():
+            general_ids = general_ids_from_mapping(entry)
+            if not general_ids:
+                continue
+            platform_q = question_service.get(platform_id)
+            helper_labels = [unified.get(gid, gid) for gid in general_ids]
+            owner = composite_owner_for_field(general_ids[0])
+            helper_section = _COMPOSITE_SECTION_LABELS.get(owner or "", None)
+            if helper_section is None and general_ids[0].startswith("tech-"):
+                helper_section = "Google technical"
+            if helper_section is None and general_ids[0].startswith("meta-"):
+                helper_section = "Meta"
+
+            index[platform_id] = PlatformFieldSource(
+                vlopse=vlopse_name,
+                platform_id=platform_id,
+                platform_text=platform_q.text if platform_q else platform_id,
+                general_ids=general_ids,
+                helper_labels=helper_labels,
+                helper_section=helper_section,
+            )
+
+    return index
+
+
+class RequiredFieldInfo(BaseModel):
+    id: str
+    label: str
+
+
+@router.get("/api/required-fields")
+async def required_fields(vlopse: list[str] = Query(...)) -> list[RequiredFieldInfo]:
+    unified = {q.id: q.text for q in question_service.get_all_unified()}
+    required_ids = form_service.get_required_general_ids(vlopse)
+    return [
+        RequiredFieldInfo(id=field_id, label=unified.get(field_id, field_id))
+        for field_id in sorted(required_ids)
+    ]
+
+
 @router.post("/api/validate")
 async def validate_answers(
     answers: AnswerRequest, vlopse: list[str] = Query(...)
@@ -137,3 +232,18 @@ async def transform_answers(answers: AnswerRequest, vlopse: list[str] = Query(..
 async def get_conditions(vlopse: list[str] = Query(...)):
     conditions = condition_service.get_merged_conditions(vlopse)
     return conditions
+
+
+@router.get("/api/schemas/{name}")
+async def get_schema(name: str, vlopse: list[str] = Query(default=[])):
+    from app.core.structured_schemas import load_schema, schema_field_metadata
+
+    try:
+        schema = load_schema(name)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Unknown schema: {name}")
+    return {
+        "name": name,
+        "schema": schema,
+        "fields": schema_field_metadata(name, vlopses=vlopse or None),
+    }

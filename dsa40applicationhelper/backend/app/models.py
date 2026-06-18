@@ -23,6 +23,9 @@ class InputType(str, Enum):
     selection = "selection"
     multi_select = "multi_select"
     ISO_3166_1 = "iso-3166-1"
+    orcid = "orcid"
+    repeatable_group = "repeatable_group"
+    composite_group = "composite_group"
 
 
 class Base(DeclarativeBase):

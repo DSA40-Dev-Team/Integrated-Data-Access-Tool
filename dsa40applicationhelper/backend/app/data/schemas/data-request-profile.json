@@ -1,0 +1,14 @@
+{
+  "fields": [
+    "data-requested",
+    "data-requested-U18",
+    "data-geoscope",
+    "data-timescope-start",
+    "data-timescope-end",
+    "data-expl",
+    "data-acc-start",
+    "data-acc-end",
+    "data-accmod",
+    "data-refresh"
+  ]
+}

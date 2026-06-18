@@ -1,0 +1,218 @@
+{
+  "info": {
+    "name": "Google",
+    "platform_information": null,
+    "account_required": false,
+    "application_link": "https://requestrecords.google.com/researcher/form",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "G36",
+        "text": "You have read and agree to the Google Search Researcher Program's Terms of Service. Your participation and data use will comply with those terms.",
+        "highlights": [
+          "Google Search Researcher Program's Terms of Service"
+        ],
+        "links": [
+          {
+            "label": "Search Researcher Program",
+            "url": "https://support.google.com/websearch/answer/16091809"
+          },
+          {
+            "label": "Google Researcher Engagement",
+            "url": "https://transparency.google/intl/en/researcher-engagement"
+          }
+        ]
+      },
+      {
+        "id": "G38",
+        "text": "You agree that data access via your GCP project will comply with the Acceptable Use Policy of Google's Researcher Program and the Google Cloud Platform Terms of Service.",
+        "highlights": [
+          "Acceptable Use Policy",
+          "Google Cloud Platform Terms of Service"
+        ],
+        "links": [
+          {
+            "label": "Google Researcher Program Acceptable Use Policy",
+            "url": "https://developers.google.com/terms/research/scientific-use-policy"
+          },
+          {
+            "label": "Google Cloud Platform Terms of Service",
+            "url": "https://cloud.google.com/terms"
+          }
+        ]
+      },
+      {
+        "id": "G43",
+        "text": "You take responsibility to act in accordance with the Acceptable Use Policy of Google's Researcher Program and the Google Play Terms of Service.",
+        "highlights": [
+          "Acceptable Use Policy",
+          "Google Play Terms of Service"
+        ],
+        "links": [
+          {
+            "label": "Google Researcher Program Acceptable Use Policy",
+            "url": "https://developers.google.com/terms/research/scientific-use-policy"
+          },
+          {
+            "label": "Google Play Developer Distribution Agreement",
+            "url": "https://play.google.com/about/developer-distribution-agreement.html"
+          }
+        ]
+      },
+      {
+        "id": "G47",
+        "text": "You have read and agree to YouTube's Terms of Service (including Developer Policies and Google Privacy Policy), and your data access will comply with YouTube's Terms of Service.",
+        "highlights": [
+          "YouTube's Terms of Service",
+          "Developer Policies",
+          "Google Privacy Policy"
+        ],
+        "links": [
+          {
+            "label": "YouTube API Services Terms of Service",
+            "url": "https://developers.google.com/youtube/terms/api-services-terms-of-service"
+          },
+          {
+            "label": "YouTube API Developer Policies",
+            "url": "https://developers.google.com/youtube/terms/developer-policies"
+          },
+          {
+            "label": "Google Privacy Policy",
+            "url": "https://policies.google.com/privacy"
+          }
+        ]
+      },
+      {
+        "id": "G48",
+        "text": "You have read and agree to the Acceptable Use Policy for the Google Researcher Program. Your access to and use of data is and will be in accordance with this policy.",
+        "highlights": [
+          "Acceptable Use Policy",
+          "Google Researcher Program"
+        ],
+        "links": [
+          {
+            "label": "Google Researcher Program Acceptable Use Policy",
+            "url": "https://developers.google.com/terms/research/scientific-use-policy"
+          },
+          {
+            "label": "Google Researcher Engagement",
+            "url": "https://transparency.google/intl/en/researcher-engagement"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "You may need to accept separate terms for Search, Maps (GCP), Play Store, and/or YouTube depending on the products you request.",
+      "Google monitors your data access and queries for Acceptable Use Policy violations.",
+      "GCP usage outside your approved researcher project may incur standard Cloud fees.",
+      "YouTube-related paths inherit API restrictions on aggregation, scraping, downloads, and quotas.",
+      "Terms may allow Google to suspend access if application facts are found to be untrue."
+    ]
+  },
+  "mappings": {
+    "G1": "data-accmod",
+    "G2": {
+      "operation": "literal-value",
+      "value": "New Research Program Application"
+    },
+    "G3": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "G4": "org-name",
+    "G5": "org-type",
+    "G6": "org-website",
+    "G7": {
+      "src": [
+        "org-addr-street",
+        "org-addr-city",
+        "org-addr-postcode",
+        "org-addr-state",
+        "org-addr-country"
+      ],
+      "operation": "join-comma"
+    },
+    "G8": "email-inst",
+    "G9": "org-evidence",
+    "G10": "org-addr-country",
+    "G11": "org-role",
+    "G12": "research-title",
+    "G13": "research-start",
+    "G14": "research-end",
+    "G15": "research-publication",
+    "G16": "collab-binary",
+    "G17": "collab-list",
+    "G18": {
+      "src": [
+        "data-requested",
+        "research-method",
+        "research-question",
+        "research-timeline"
+      ],
+      "operation": "make-report"
+    },
+    "G19": "research-docs",
+    "G20": {
+      "src": [
+        "data-requested",
+        "data-expl"
+      ],
+      "operation": "join-paragraph"
+    },
+    "G21": "research-sysrisk-categories",
+    "G22": "research-sysrisk",
+    "G23": {
+      "src": "funding-received",
+      "operation": "google-funding-sponsor-types"
+    },
+    "G24": {
+      "src": "funding-received",
+      "operation": "google-funding-org-names"
+    },
+    "G25": "org-commercial-evidence-types",
+    "G26": "org-commercial-evidence",
+    "G27": {
+      "src": "funding-received",
+      "operation": "google-funding-disclosure"
+    },
+    "G28": "funding-evidence",
+    "G29": "security-capable-binary",
+    "G30": "security-capable-evidence",
+    "G31": {
+      "src": [
+        "tom-technical",
+        "tom-organisational"
+      ],
+      "operation": "join-paragraph"
+    },
+    "G32": {
+      "src": [
+        "tom-technical",
+        "tom-organisational"
+      ],
+      "operation": "google-data-protection"
+    },
+    "G33": "tom-evidence",
+    "G34": "collab-lead",
+    "G35": "collab-list",
+    "G37": "tech-client",
+    "G39": "prev-experience",
+    "G40": {
+      "src": [
+        "tech-client-scrape-method",
+        "data-accmod",
+        "org-type"
+      ],
+      "operation": "join-paragraph"
+    },
+    "G41": "tech-client-ip-type",
+    "G42": "tech-client-ip",
+    "G44": "tech-client-ip-type",
+    "G45": "tech-client-ip",
+    "G46": "tech-client-token"
+  },
+  "conditions": {}
+}

@@ -1,4 +1,5 @@
 from enum import Enum
+import json
 from pathlib import Path
 
 from pydantic import BaseModel
@@ -13,12 +14,28 @@ class ApplicationModality(str, Enum):
     email = "email"
 
 
+class PlatformDisclaimerLink(BaseModel):
+    label: str
+    url: str
+
+
+class PlatformDisclaimer(BaseModel):
+    """Legal or contractual text the platform form requires; shown as a disclaimer in the helper."""
+
+    id: str
+    text: str
+    highlights: list[str] = []
+    links: list[PlatformDisclaimerLink] = []
+
+
 class PlatformInformation(BaseModel):
     name: str
     platform_information: str | None = None
     account_required: bool
     application_link: str
     modality: ApplicationModality
+    disclaimers: list[PlatformDisclaimer] = []
+    term_implications: list[str] = []
 
 
 class VLOPSEConfiguration(BaseModel):
@@ -28,9 +45,17 @@ class VLOPSEConfiguration(BaseModel):
 
 
 def _load_json(filename: str) -> VLOPSEConfiguration:
+    from app.core.conditions_util import normalize_stored_conditions
+
     path = _VLOPSE_CONFIG_DIR / filename
-    data = path.read_text()
-    return VLOPSEConfiguration.model_validate_json(data)
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(data.get("conditions"), dict):
+        normalized = normalize_stored_conditions(data["conditions"])
+        data["conditions"] = {
+            key: [clause.model_dump() for clause in clauses]
+            for key, clauses in normalized.items()
+        }
+    return VLOPSEConfiguration.model_validate(data)
 
 
 def _write_json(filename: str, value: VLOPSEConfiguration):

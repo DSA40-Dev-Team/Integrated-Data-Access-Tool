@@ -5,16 +5,22 @@
     id: string;
     value: string;
     options: string[];
+    onchange?: (value: string) => void;
   };
 
-  let { id, value = $bindable(""), options }: Props = $props();
+  let { id, value = $bindable(""), options, onchange }: Props = $props();
   const triggerContent = $derived(
     options.find((o) => o === value) ?? "Select an option",
   );
+  const hasSelection = $derived(Boolean(value));
 </script>
 
-<Select.Root type="single" name={id} bind:value>
-  <Select.Trigger class="w-[180px]">
+<Select.Root
+  type="single"
+  bind:value
+  onValueChange={(v) => onchange?.(v ?? "")}
+>
+  <Select.Trigger class="w-full max-w-lg {hasSelection ? '' : 'text-field-hint'}">
     {triggerContent}
   </Select.Trigger>
   <Select.Content>

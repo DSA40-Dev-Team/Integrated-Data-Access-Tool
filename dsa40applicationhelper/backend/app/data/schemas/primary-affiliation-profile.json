@@ -1,0 +1,7 @@
+{
+  "fields": [
+    "org-role",
+    "org-department",
+    "org-evidence"
+  ]
+}

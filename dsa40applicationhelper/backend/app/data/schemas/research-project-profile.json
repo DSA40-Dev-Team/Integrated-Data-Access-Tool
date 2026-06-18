@@ -1,0 +1,24 @@
+{
+  "fields": [
+    "research-title",
+    "research-summary",
+    "research-summary-litreview",
+    "research-sysrisk-categories",
+    "research-sysrisk",
+    "research-keywords",
+    "research-method",
+    "research-question",
+    "research-outcomes",
+    "research-citations",
+    "research-start",
+    "research-end",
+    "research-timeline",
+    "research-publication-bin",
+    "research-publication",
+    "research-ethics",
+    "research-ethics-irb-us",
+    "research-ethics-irb-eea",
+    "research-docs",
+    "research-commercial-purpose"
+  ]
+}

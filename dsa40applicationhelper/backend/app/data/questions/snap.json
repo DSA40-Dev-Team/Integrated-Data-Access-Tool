@@ -1,0 +1,74 @@
+[
+  {
+    "id": "S1",
+    "text": "Your name",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "S2",
+    "text": "name of the affiliated research organisation",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "S3",
+    "text": "detailed description of the data you wish to access",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Requested Data"
+  },
+  {
+    "id": "S4",
+    "text": "detailed description of the purpose for which you are requesting data",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "S5",
+    "text": "detailed description of the planned research activities and methodology",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "S6",
+    "text": "Details on the sources of the funding for the research you are conducting",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "S7",
+    "text": "Confirmation that your research is for non-commercial purposes",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "S8",
+    "text": "Details on the timeframe of the requested data",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Requested Data"
+  }
+]

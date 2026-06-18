@@ -47,42 +47,41 @@ const transform = async ({ answers, vlopses }) => {
   return { ok: true, by_vlopse };
 };
 
-export const actions = {
-  default: async ({ url, cookies, request, fetch }) => {
-    const vlopses = url.searchParams.getAll("vlopses");
-    const data = await request.formData();
-    const uploadDir = "/tmp/dsa_uploads";
-    await mkdir(uploadDir, { recursive: true });
-    const answers = await Promise.all(
-      [...data.entries()].map(async ([key, value]) => {
-        if (value instanceof File) {
-          if (value.size > 0) {
-            const filename = `${Date.now()}_${value.name}`;
-            await writeFile(
-              join(uploadDir, filename),
-              Buffer.from(await value.arrayBuffer()),
-            );
-            return { question_id: key, value: join(uploadDir, filename) };
-          }
-          return { question_id: key, value: "" };
+async function answersFromFormData(data: FormData) {
+  const uploadDir = "/tmp/dsa_uploads";
+  await mkdir(uploadDir, { recursive: true });
+  return Promise.all(
+    [...data.entries()].map(async ([key, value]) => {
+      if (value instanceof File) {
+        if (value.size > 0) {
+          const filename = `${Date.now()}_${value.name}`;
+          await writeFile(
+            join(uploadDir, filename),
+            Buffer.from(await value.arrayBuffer()),
+          );
+          return { question_id: key, value: join(uploadDir, filename) };
         }
-        return { question_id: key, value: value as string };
-      }),
-    );
+        return { question_id: key, value: "" };
+      }
+      return { question_id: key, value: value as string };
+    }),
+  );
+}
 
-    var { ok, ...rest } = await validate({ answers, vlopses });
-    if (!ok) {
-      console.log("error validating DSA answers.");
-      console.log(rest);
-      return fail(400, { ...rest });
-    }
+async function submitAnswers({ url, request }) {
+  const vlopses = url.searchParams.getAll("vlopses");
+  const data = await request.formData();
+  const answers = await answersFromFormData(data);
 
-    var { ok, by_vlopse } = await transform({ answers, vlopses });
-    if (!ok) {
-      console.log("error transforming to VLOPSE questions.");
-      return fail(400, { errors: by_vlopse });
-    }
+  const { ok, ...rest } = await validate({ answers, vlopses });
+  if (!ok) {
+    return fail(400, { ...rest });
+  }
 
-    return { success: true, by_vlopse };
-  },
+  const transformResult = await transform({ answers, vlopses });
+  return { success: true, by_vlopse: transformResult.by_vlopse };
+}
+
+export const actions = {
+  default: submitAnswers,
 } satisfies Actions;

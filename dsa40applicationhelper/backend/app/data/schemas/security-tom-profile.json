@@ -1,0 +1,14 @@
+{
+  "fields": [
+    "security-capable-binary",
+    "security-capable-evidence",
+    "tom-technical",
+    "tom-organisational",
+    "tom-responsible",
+    "tom-storagelocation",
+    "tom-storage-start",
+    "tom-storage-end",
+    "purpose-limitation-binary",
+    "tom-evidence"
+  ]
+}

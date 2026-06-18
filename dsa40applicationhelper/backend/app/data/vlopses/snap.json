@@ -1,0 +1,67 @@
+{
+  "info": {
+    "name": "Snap",
+    "platform_information": "https://values.snap.com/privacy/transparency/researcher-access",
+    "account_required": false,
+    "application_link": "DSA-Researcher-Access@snapchat.com",
+    "modality": "email",
+    "disclaimers": [
+      {
+        "id": "snap-email",
+        "text": "Access is requested by email to Snap. If approved, Snap may provide separate terms governing researcher data access.",
+        "highlights": [
+          "researcher data access"
+        ],
+        "links": [
+          {
+            "label": "Snap researcher access information",
+            "url": "https://values.snap.com/privacy/transparency/researcher-access"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "Application is by email — contractual terms are likely provided only after approval.",
+      "Review Snap's researcher access documentation for eligibility and process requirements before contacting them."
+    ]
+  },
+  "mappings": {
+    "S1": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "S2": "org-name",
+    "S3": "data-requested",
+    "S4": {
+      "src": [
+        "research-sysrisk",
+        "research-summary"
+      ],
+      "operation": "make-report"
+    },
+    "S5": {
+      "src": [
+        "research-question",
+        "research-method",
+        "research-timeline"
+      ],
+      "operation": "make-report"
+    },
+    "S6": {
+      "src": "funding-received",
+      "operation": "format-funding-sources-text"
+    },
+    "S7": "research-commercial-purpose",
+    "S8": {
+      "src": [
+        "data-acc-start",
+        "data-acc-end"
+      ],
+      "operation": "make-data-summary"
+    }
+  },
+  "conditions": {}
+}

@@ -1,0 +1,341 @@
+[
+  {
+    "id": "L1",
+    "text": "First Name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "L2",
+    "text": "Last Name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "L3",
+    "text": "Email",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "L4",
+    "text": "Do you plan to conduct your research under Article 40(12) of the Digital Services Act?",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "L5",
+    "text": "Full Name",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "L6",
+    "text": "Email Contact",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "L7",
+    "text": "Organization Name",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "L8",
+    "text": "Organization Address",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "L9",
+    "text": "Organization Country",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "[Global Countries]"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "L10",
+    "text": "Organization Website",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "L11",
+    "text": "Link to your profile on organization website:",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "L12",
+    "text": "Link to your LinkedIn profile",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "L13",
+    "text": "Job Title",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Faculty",
+        "Researcher",
+        "Student",
+        "Staff",
+        "Other"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "L14",
+    "text": "Department",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "L15",
+    "text": "Name and organization of other researchers involved, including links to the profiles on the organization(s) site",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Collaboration"
+  },
+  {
+    "id": "L16",
+    "text": "Who is funding your research",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "L17",
+    "text": "Have you applied for research access with LinkedIn before",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "L18",
+    "text": "Research Title",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "L19",
+    "text": "Tell us about your research project- Please provide a project proposal that includes: research problem to be solved, data to be used, project timeline, key milestones and outcomes.",
+    "required": false,
+    "input_type": "text",
+    "details": "(250 characters maximum)",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "L20",
+    "text": "How will your research contribute to the detection, identification and understanding of the systemic risks identified in Article 34(1) of the DSA in the Union or otherwise meet the requirements of Article 40(12) of the DSA",
+    "required": false,
+    "input_type": "text",
+    "details": "(250 characters maximum)",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "L21",
+    "text": "Duration of requested public data gathering",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "3 Months",
+        "6 Months",
+        "More"
+      ]
+    },
+    "classification": "Requested Data"
+  },
+  {
+    "id": "L22",
+    "text": "Do you want access to an API",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Access Modality"
+  },
+  {
+    "id": "L23",
+    "text": "Do you plan to publish your research",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "L24",
+    "text": "Does your research have any commercial purpose",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "L25",
+    "text": "How long do you expect to store the requested public data",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "3 Months",
+        "6 Months",
+        "More"
+      ]
+    },
+    "classification": "Data Security"
+  },
+  {
+    "id": "L26",
+    "text": "In which country do you expect to store the requested public data",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "[Global Countries]"
+      ]
+    },
+    "classification": "Data Security"
+  },
+  {
+    "id": "L27",
+    "text": "Except for those you identified in response to Question 11, will you provide others access to the requested public data",
+    "required": false,
+    "input_type": "selection",
+    "details": "overflow from L15",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Collaboration"
+  },
+  {
+    "id": "L28",
+    "text": "If yes for the above: Please identify the persons/category of persons and the purpose",
+    "required": false,
+    "input_type": "text",
+    "details": "overflow from L15",
+    "config": null,
+    "classification": "Collaboration"
+  },
+  {
+    "id": "L29",
+    "text": "What technical and organisational mechanisms will you use to protect the requested public data",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Data Security"
+  },
+  {
+    "id": "L30",
+    "text": "Who will be responsible for compliance with GDPR for any personal data included in the requested public data",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Data Security"
+  }
+]

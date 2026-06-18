@@ -1,1 +1,310 @@
-{"info":{"name":"TikTok","platform_information":"https://developers.tiktok.com/products/research-api/","account_required":true,"application_link":"https://developers.tiktok.com/application/research-api","modality":"form"},"mappings":{"T1":{"src":["first-name","last-name"],"operation":"join-space"},"T2":"affiliation-type","T3":"org-addr-country","T4":"org-addr-country","T5":"org-addr-country","T6":"data-requested-U18","T7":"org-role","T8":"org-evidence","T9":"org-role","T10":"research-ethics","T11":"research-ethics","T12":"funding-received","T13":"funding-sources","T14":"email-inst","T15":"profile-inst","T16":"org-name","T17":{"src":["org-addr-street","org-addr-city","org-addr-postcode","org-addr-state","org-addr-country"],"operation":"join-comma"},"T18":"org-website","T19":"org-website","T20":"org-id","T21":"cv","T22":"org-department","T23":"cv","T24":"research-keywords","T25":"research-keywords","T26":{"src":["research-summary","research-sysrisk"],"operation":"make-report"},"T27":"research-method","T28":"data-acc-start","T29":"data-acc-end","T30":"data-expl","T31":"tom-general","T32":"research-question","T33":"research-publication","T34":"research-citations","T35":"research-citations"},"conditions":{"T3":[{"question_id":"T2","operator":"eq","value":"Academic institution"}],"T4":[{"question_id":"T2","operator":"eq","value":"Academic institution"},{"question_id":"T3","operator":"eq","value":"EEA (European Economic Area), UK, or Switzerland"}],"T5":[{"question_id":"T2","operator":"eq","value":"Not-for-profit body"}],"T6":[{"question_id":"T2","operator":"eq","value":"Not-for-profit body"}],"T8":[{"question_id":"T8","operator":"eq","value":"Research student"}],"T9":[{"question_id":"T8","operator":"eq","value":"Other"}],"T10":[{"question_id":"T2","operator":"eq","value":"Not-for-profit body"}],"T11":[{"question_id":"T2","operator":"eq","value":"Academic institution"},{"question_id":"T3","operator":"eq","value":"EEA (European Economic Area), UK, or Switzerland"},{"question_id":"T7","operator":"eq","value":"No"}],"T13":[{"question_id":"T15","operator":"eq","value":"Yes"}],"T25":[{"question_id":"T29","operator":"eq","value":"Other"}]}}
+{
+  "info": {
+    "name": "TikTok",
+    "platform_information": "https://developers.tiktok.com/products/research-api/",
+    "account_required": true,
+    "application_link": "https://developers.tiktok.com/application/research-api",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "T44",
+        "text": "By proceeding, you agree on your own behalf and on behalf of the institution you work for to the TikTok Research Tools Terms of Service.",
+        "highlights": [
+          "TikTok Research Tools Terms of Service"
+        ],
+        "links": [
+          {
+            "label": "TikTok Research Tools Terms of Service",
+            "url": "https://www.tiktok.com/legal/page/global/terms-of-service-research-api/en"
+          },
+          {
+            "label": "TikTok Terms of Service",
+            "url": "https://www.tiktok.com/legal/terms-of-service"
+          },
+          {
+            "label": "TikTok Privacy Policy",
+            "url": "https://www.tiktok.com/legal/privacy-policy"
+          }
+        ]
+      },
+      {
+        "id": "T45",
+        "text": "You certify that the statements in the Compliance Certification are true and that you will disclose any issues or risks of non-compliance to TikTok.",
+        "highlights": [
+          "Compliance Certification"
+        ],
+        "links": [
+          {
+            "label": "TikTok Research Tools Terms of Service",
+            "url": "https://www.tiktok.com/legal/page/global/terms-of-service-research-api/en"
+          }
+        ]
+      },
+      {
+        "id": "T46",
+        "text": "You confirm that you will comply with TikTok's Global Data Sharing Research Security Measures (Minimum Security Measures).",
+        "highlights": [
+          "Global Data Sharing Research Security Measures",
+          "Minimum Security Measures"
+        ],
+        "links": [
+          {
+            "label": "Minimum Security Measures (Schedule C)",
+            "url": "https://www.tiktok.com/legal/page/global/terms-of-service-research-api/en"
+          }
+        ]
+      },
+      {
+        "id": "T47",
+        "text": "For non-academic not-for-profit applicants: you consent to verification by Percent and agree to Percent's Terms & Conditions and Privacy Policy.",
+        "highlights": [
+          "Percent",
+          "Terms & Conditions",
+          "Privacy Policy"
+        ],
+        "links": [
+          {
+            "label": "Percent Terms of Use",
+            "url": "https://www.percent.com/terms-of-use"
+          },
+          {
+            "label": "Percent Privacy Policy",
+            "url": "https://www.percent.com/privacy-policy"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "Data may only be used for research topics approved in your application — pivoting to new risks may require re-approval.",
+      "You must not scrape or manually extract data outside TikTok Research Tools.",
+      "API quotas are set at TikTok's sole discretion and may be reduced or revoked at any time.",
+      "You cannot share raw data or analysis derivatives with third parties, including collaborators.",
+      "Personal data must be refreshed every 30 days; you must certify deletion on TikTok's request.",
+      "You must send publications to TikTok at least 7 days before release.",
+      "Broad unlimited indemnity applies for breaches of these terms and data protection law.",
+      "Minimum Security Measures (Schedule C) require data-center-grade controls that may be onerous for smaller institutions."
+    ]
+  },
+  "mappings": {
+    "T1": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "T2": {
+      "src": "org-type",
+      "operation": "tiktok-affiliation-type"
+    },
+    "T3": "org-addr-country",
+    "T4": "org-addr-country",
+    "T5": "org-addr-country",
+    "T6": "org-addr-country",
+    "T7": "data-requested-U18",
+    "T8": "org-role",
+    "T9": {
+      "src": [
+        "org-role",
+        "org-evidence"
+      ],
+      "operation": "join-paragraph"
+    },
+    "T10": "org-role",
+    "T11": "research-ethics-irb-us",
+    "T12": "research-ethics",
+    "T13": "research-ethics-irb-eea",
+    "T14": "org-id",
+    "T15": "funding-received",
+    "T16": {
+      "src": "funding-received",
+      "operation": "format-funding-sources-text"
+    },
+    "T17": "email-inst",
+    "T18": "profile-inst",
+    "T19": "org-name",
+    "T20": {
+      "src": [
+        "org-addr-street",
+        "org-addr-city",
+        "org-addr-postcode",
+        "org-addr-state",
+        "org-addr-country"
+      ],
+      "operation": "join-comma"
+    },
+    "T21": "org-website",
+    "T22": "org-website",
+    "T23": "org-id",
+    "T24": "discipline-expertise",
+    "T25": "org-department",
+    "T26": "collab-binary",
+    "T27": "collab-list",
+    "T28": "research-citations",
+    "T29": "research-keywords",
+    "T30": "research-keywords",
+    "T31": {
+      "src": [
+        "research-summary",
+        "research-sysrisk"
+      ],
+      "operation": "make-report"
+    },
+    "T32": "research-method",
+    "T33": "data-acc-start",
+    "T34": "data-acc-end",
+    "T35": "data-expl",
+    "T36": "collab-share-binary",
+    "T37": "collab-share",
+    "T38": {
+      "src": [
+        "tom-evidence",
+        "collab-share"
+      ],
+      "operation": "join-paragraph"
+    },
+    "T39": {
+      "src": [
+        "tom-technical",
+        "tom-organisational"
+      ],
+      "operation": "format-tom-summary"
+    },
+    "T40": "research-question",
+    "T41": "research-publication",
+    "T42": "research-summary-litreview",
+    "T43": "research-citations"
+  },
+  "conditions": {
+    "T3": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Academic institution"
+      }
+    ],
+    "T4": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Academic institution"
+      },
+      {
+        "question_id": "T3",
+        "operator": "eq",
+        "value": "US and its territories"
+      }
+    ],
+    "T5": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Academic institution"
+      },
+      {
+        "question_id": "T3",
+        "operator": "eq",
+        "value": "EEA (European Economic Area), UK, or Switzerland"
+      }
+    ],
+    "T6": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Not-for-profit body"
+      }
+    ],
+    "T7": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Not-for-profit body"
+      }
+    ],
+    "T9": [
+      {
+        "question_id": "T8",
+        "operator": "eq",
+        "value": "Research student"
+      }
+    ],
+    "T10": [
+      {
+        "question_id": "T8",
+        "operator": "eq",
+        "value": "Other"
+      }
+    ],
+    "T11": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Academic institution"
+      },
+      {
+        "question_id": "T3",
+        "operator": "eq",
+        "value": "US and its territories"
+      }
+    ],
+    "T12": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Not-for-profit body"
+      }
+    ],
+    "T13": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Academic institution"
+      },
+      {
+        "question_id": "T3",
+        "operator": "eq",
+        "value": "EEA (European Economic Area), UK, or Switzerland"
+      },
+      {
+        "question_id": "T7",
+        "operator": "eq",
+        "value": "No"
+      }
+    ],
+    "T14": [
+      {
+        "question_id": "T2",
+        "operator": "eq",
+        "value": "Not-for-profit body"
+      }
+    ],
+    "T16": [
+      {
+        "question_id": "T15",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "T27": [
+      {
+        "question_id": "T26",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "T30": [
+      {
+        "question_id": "T29",
+        "operator": "eq",
+        "value": "Other"
+      }
+    ],
+    "T37": [
+      {
+        "question_id": "T36",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  }
+}

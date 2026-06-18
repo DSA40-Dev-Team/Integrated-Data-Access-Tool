@@ -1,0 +1,398 @@
+[
+  {
+    "id": "Y1",
+    "text": "Please select the option applicable",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "New Researcher Program Application",
+        "Current participant in Researcher Program, Require Additional Quota"
+      ]
+    },
+    "classification": "Previous Experience"
+  },
+  {
+    "id": "Y2",
+    "text": "Your full legal name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "Y3",
+    "text": "Organization contact email address (Institution email preferred)",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "Y4",
+    "text": "Country",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y5",
+    "text": "Organization Name",
+    "required": true,
+    "input_type": "selection",
+    "details": "If your university is not listed, please select the option \"Other\" and enter it manually",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y6",
+    "text": "Enter your Organization Name",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y7",
+    "text": "Organization Website",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y8",
+    "text": "Organization Address",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y9",
+    "text": "Job Title",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Faculty",
+        "Postdoctoral Researcher",
+        "PhD Student",
+        "Staff",
+        "Other"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y10",
+    "text": "Department Name",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y11",
+    "text": "Link to your profile in your institution's faculty or researcher directory",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "Y12",
+    "text": "Research Title",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "Y13",
+    "text": "Research Start Date",
+    "required": true,
+    "input_type": "date_select",
+    "details": "format \"MM/DD/YYYY\"",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "Y14",
+    "text": "Research Publication Date",
+    "required": true,
+    "input_type": "date_select",
+    "details": "format \"MM/DD/YYYY\", Researchers are granted quotas and access to the YouTube’s API systems and data for the period of their research, subject to periodic compliance audits. Quota and access to the program may be revoked following completion of research or publication, whichever is first.",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "Y15",
+    "text": "Please provide a project proposal that includes: research problem to be solved, YouTube Data to be used, project timeline, key milestones and outcomes, and how YouTube can support your research in the future. Please include a link to your shared Google Doc OR copy and paste text in the field below. (1500 characters maximum)",
+    "required": true,
+    "input_type": "text",
+    "details": "max 1500 chars\nincludes Requested Data",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "Y16",
+    "text": "Field of Research",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Astronomical Sciences, Atmospheric & Geospace Sciences, Behavioural & Cognitive Sciences, Biological Infrastructure, Chemistry, Computer & Information Sciences, Earth Sciences, Economic Sciences, Engineering, Environmental Biology, Genomics, Life Sciences, Medical &amp",
+        "Health Sciences, Materials Research, Mathematical Sciences, Molecular Celluar Biosciences, Ocean Sciences, Other, Physics, Social Sciences, Statistics"
+      ]
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "Y17",
+    "text": "Is your research affiliated or sponsored by government or non-government entity",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "Y18",
+    "text": "Please elaborate on the affiliation or sponsorship",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "Y19",
+    "text": "Please list all the project numbers used for each of your API Client(s)",
+    "required": true,
+    "input_type": "text",
+    "details": "The project number is a series of digits that can be found alongside the Project ID in your Google Cloud Console. Please comma separate the project numbers without additional spaces",
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "Y20",
+    "text": "Is this a publicly or privately available API Client?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Publicly accessible",
+        "Internal use only"
+      ]
+    },
+    "classification": "Technical"
+  },
+  {
+    "id": "Y21",
+    "text": "If publicly available, provide a link to the client",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "Y22",
+    "text": "If there is a log-in required to access the API client, please provide a demo account and instructions on how to access the API Client",
+    "required": false,
+    "input_type": "text",
+    "details": "Please include similar data and interface as if a user was using the account.",
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "Y23",
+    "text": "Does your API Client commercialize YouTube Data?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Technical"
+  },
+  {
+    "id": "Y24",
+    "text": "Does your API Client use multiple projects to access YouTube APIs?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Technical"
+  },
+  {
+    "id": "Y25",
+    "text": "Please list all project numbers",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "Y26",
+    "text": "Does this API Client display data from, or provide features or services across, multiple platforms (ex: Facebook, Twitter, etc.)?",
+    "required": true,
+    "input_type": "selection",
+    "details": "For example, does this API Client display data obtained from YouTube beside or in conjunction with data from other sources?",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Technical"
+  },
+  {
+    "id": "Y27",
+    "text": "How long do you store YouTube API Data?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        ">12 months",
+        "3 - 12 months",
+        "30 - 90 days",
+        "1 - 4 weeks",
+        "1 - 7 days",
+        "24 hours"
+      ]
+    },
+    "classification": "Data Security"
+  },
+  {
+    "id": "Y28",
+    "text": "How often do you refresh YouTube API Data?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "24 hours",
+        "1 week",
+        "1 month",
+        "1 year<",
+        "Never"
+      ]
+    },
+    "classification": "Requested Data"
+  },
+  {
+    "id": "Y29",
+    "text": "Send documents (e.g., design documents, etc.) relating to your implementation, access, integration and use of YouTube API Services by each of your API Client/If the API Client is not accessible publicly, please upload a detailed screencast of each YouTube API Service functionality and YouTube data, content and information as displayed on, or integrated into, this API Client. * No files chosen",
+    "required": true,
+    "input_type": "file_upload",
+    "details": "Note : Please upload one file smaller than 10MB. Multiple file uploads and file size greater than 10 MB will result in an error during submission",
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "Y30",
+    "text": "I have read and agree to the YouTube API Services Terms of Service (including the Developer Policies and Google Privacy Policy) and my current and proposed access to, and use of, YouTube API Service(s) does and will comply with the YouTube API Services Terms of Service.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  },
+  {
+    "id": "Y31",
+    "text": "If I provide a demo account and instructions on how Google can access my API Client, I understand and agree that Google is not bound to any terms of service or policies that applies to such account or access to my API Client.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I understand"
+      ]
+    },
+    "classification": "Legal"
+  },
+  {
+    "id": "Y32",
+    "text": "I have read and agree to the the Researcher Program Policy & Terms and agree and understand(i) my acceptance by and participation in the YouTube Researcher Program is subject to the Researcher Program Policy & Terms and(ii) my access to, and use of, YouTube API Service(s), including without limitation all data obtained by me through the YouTube API Service(s), does and will comply with the Researcher Program Policy and Terms.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  },
+  {
+    "id": "Y33",
+    "text": "The above facts are true to the best of my knowledge and I understand that should the above facts be found to be untrue, YouTube may terminate my API Client's access to the YouTube API Services as per YouTube's Terms of Service and Developer Policies",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  },
+  {
+    "id": "Y34",
+    "text": "Google can ask for feedback about my support experience by email",
+    "required": false,
+    "input_type": "selection",
+    "details": "You may receive an email after the case is closed",
+    "config": null,
+    "classification": "Legal"
+  }
+]

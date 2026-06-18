@@ -3,7 +3,7 @@
     "name": "Meta",
     "platform_information": "https://developers.facebook.com/docs/content-library-and-api/get-access/mcl-application-guide",
     "account_required": true,
-    "application_link": "https://icpsr.atlassian.net/servicedesk/customer/portal/53/group/80/create/251",
+    "application_link": "https://www.facebook.com/research-tools-manager",
     "modality": "form"
   },
   "tiktok": {
@@ -26,5 +26,47 @@
     "account_required": false,
     "application_link": "https://docs.google.com/forms/d/e/1FAIpQLSdo0O-D6Kxa3cV4g1JLz2T_0Sk3hdEnTdv8dJmibagCnzJ7kg/viewform",
     "modality": "form"
+  },
+  "snap": {
+    "name": "Snap",
+    "platform_information": "https://values.snap.com/privacy/transparency/researcher-access",
+    "account_required": false,
+    "application_link": "DSA-Researcher-Access@snapchat.com",
+    "modality": "email"
+  },
+  "pinterest": {
+    "name": "Pinterest",
+    "platform_information": null,
+    "account_required": false,
+    "application_link": "https://help.pinterest.com/en/landing/researchers-intake-form",
+    "modality": "form"
+  },
+  "bing": {
+    "name": "Bing",
+    "platform_information": "https://support.microsoft.com/en-us/topic/bing-qualified-researcher-program-b1c5a4b6-3ad6-4c8c-963d-a395c7766c85",
+    "account_required": false,
+    "application_link": "https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_LeIU5Rc-pEi8af8aM27jhUNUwzMUhaSVVNOVBXVjdVSkhaQVhDR1NHMS4u",
+    "modality": "form"
+  },
+  "google": {
+    "name": "Google",
+    "platform_information": null,
+    "account_required": false,
+    "application_link": "https://requestrecords.google.com/researcher/form",
+    "modality": "form"
+  },
+  "linkedin": {
+    "name": "LinkedIn",
+    "platform_information": "https://www.linkedin.com/help/linkedin/answer/a1645616",
+    "account_required": false,
+    "application_link": "https://www.linkedin.com/help/linkedin/ask/DSA",
+    "modality": "form"
+  },
+  "apple": {
+    "name": "Apple",
+    "platform_information": null,
+    "account_required": false,
+    "application_link": "dsacompliance@apple.com",
+    "modality": "email"
   }
 }

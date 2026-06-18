@@ -1,1 +1,193 @@
-{"info":{"name":"YouTube","platform_information":null,"account_required":false,"application_link":"https://support.google.com/youtube/contact/yt_researcher_certification","modality":"form"},"mappings":{"Y1":"prev-experience","Y2":{"src":["first-name","last-name"],"operation":"join-space"},"Y3":"email-inst","Y4":"org-addr-country","Y5":"org-name","Y6":"org-name","Y7":"org-website","Y8":{"src":["org-addr-street","org-addr-city","org-addr-postcode","org-addr-state","org-addr-country"],"operation":"join-comma"},"Y9":"org-role","Y10":"org-department","Y11":"profile-inst","Y12":"research-title","Y13":"research-start","Y14":"research-publication","Y15":{"src":["research-question","data-requested","research-timeline","research-outcomes","research-summary"],"operation":"join-paragraph"},"Y16":"research-keywords","Y17":"funding-sources","Y18":"funding-sources","Y19":{"src":["tom-storage-start","tom-storage-end"],"operation":"make-duration"},"Y20":"data-refresh"},"conditions":{"Y6":[{"question_id":"Y5","operator":"eq","value":"Other"}],"Y18":[{"question_id":"Y17","operator":"eq","value":"Yes"}]}}
+{
+  "info": {
+    "name": "YouTube",
+    "platform_information": "https://developers.google.com/youtube/v3/guides/researcher_guide",
+    "account_required": false,
+    "application_link": "https://support.google.com/youtube/contact/yt_researcher_certification",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "Y30",
+        "text": "You have read and agree to the YouTube API Services Terms of Service (including the Developer Policies and Google Privacy Policy), and your access to and use of YouTube API Service(s) will comply with those terms.",
+        "highlights": [
+          "YouTube API Services Terms of Service",
+          "Developer Policies",
+          "Google Privacy Policy"
+        ],
+        "links": [
+          {
+            "label": "YouTube API Services Terms of Service",
+            "url": "https://developers.google.com/youtube/terms/api-services-terms-of-service"
+          },
+          {
+            "label": "YouTube API Developer Policies",
+            "url": "https://developers.google.com/youtube/terms/developer-policies"
+          },
+          {
+            "label": "Google Privacy Policy",
+            "url": "https://policies.google.com/privacy"
+          }
+        ]
+      },
+      {
+        "id": "Y31",
+        "text": "If you provide a demo account and access instructions, you understand that Google is not bound by terms of service or policies that apply to that account or access to your API Client.",
+        "highlights": [
+          "demo account",
+          "API Client"
+        ],
+        "links": []
+      },
+      {
+        "id": "Y32",
+        "text": "You have read and agree to the Researcher Program Policy & Terms. Your participation in the YouTube Researcher Program and use of YouTube API Service(s) will comply with those terms.",
+        "highlights": [
+          "Researcher Program Policy & Terms",
+          "YouTube Researcher Program"
+        ],
+        "links": [
+          {
+            "label": "YouTube API Services Terms of Service",
+            "url": "https://developers.google.com/youtube/terms/api-services-terms-of-service"
+          },
+          {
+            "label": "YouTube API Developer Policies",
+            "url": "https://developers.google.com/youtube/terms/developer-policies"
+          },
+          {
+            "label": "YouTube researcher certification",
+            "url": "https://support.google.com/youtube/contact/yt_researcher_certification"
+          }
+        ]
+      },
+      {
+        "id": "Y33",
+        "text": "The facts you provide are true to the best of your knowledge. You understand that YouTube may terminate API Client access if they are found untrue, per YouTube's Terms of Service and Developer Policies.",
+        "highlights": [
+          "Terms of Service",
+          "Developer Policies"
+        ],
+        "links": [
+          {
+            "label": "YouTube API Services Terms of Service",
+            "url": "https://developers.google.com/youtube/terms/api-services-terms-of-service"
+          },
+          {
+            "label": "YouTube API Developer Policies",
+            "url": "https://developers.google.com/youtube/terms/developer-policies"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "Program Data may only be used for topics approved in your application or closely related research.",
+      "You cannot disclose, sell, or transfer Program Data to third parties.",
+      "Developer Policies prohibit downloading audiovisual content and scraping YouTube applications.",
+      "Aggregating API data across channels or gaining insights into YouTube usage is prohibited.",
+      "YouTube may change API quotas or suspend access at any time, potentially without notice.",
+      "YouTube receives royalty-free rights to use your publications for internal and marketing purposes.",
+      "You should provide YouTube a courtesy copy of publications at least 7 days before release."
+    ]
+  },
+  "mappings": {
+    "Y1": "prev-experience",
+    "Y2": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "Y3": "email-inst",
+    "Y4": "org-addr-country",
+    "Y5": "org-name",
+    "Y6": "org-name",
+    "Y7": "org-website",
+    "Y8": {
+      "src": [
+        "org-addr-street",
+        "org-addr-city",
+        "org-addr-postcode",
+        "org-addr-state",
+        "org-addr-country"
+      ],
+      "operation": "join-comma"
+    },
+    "Y9": "org-role",
+    "Y10": "org-department",
+    "Y11": "profile-inst",
+    "Y12": "research-title",
+    "Y13": "research-start",
+    "Y14": "research-publication",
+    "Y15": {
+      "src": [
+        "research-question",
+        "data-requested",
+        "research-timeline",
+        "research-outcomes",
+        "research-summary"
+      ],
+      "operation": "join-paragraph"
+    },
+    "Y16": "research-keywords",
+    "Y17": "funding-received",
+    "Y18": {
+      "src": "funding-received",
+      "operation": "format-funding-sources-text"
+    },
+    "Y19": "tech-client-project-numbers",
+    "Y20": "tech-client-visibility",
+    "Y21": "tech-client-public-link",
+    "Y22": "tech-client-demo-access",
+    "Y23": "tech-client-commercializes",
+    "Y24": "tech-client-multi-project",
+    "Y25": "tech-client-project-numbers",
+    "Y26": "tech-client-cross-platform",
+    "Y27": {
+      "src": [
+        "tom-storage-start",
+        "tom-storage-end"
+      ],
+      "operation": "make-duration"
+    },
+    "Y28": "data-refresh",
+    "Y29": "tech-client-implementation-docs"
+  },
+  "conditions": {
+    "Y6": [
+      {
+        "question_id": "Y5",
+        "operator": "eq",
+        "value": "Other"
+      }
+    ],
+    "Y18": [
+      {
+        "question_id": "Y17",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "Y21": [
+      {
+        "question_id": "Y20",
+        "operator": "eq",
+        "value": "Publicly accessible"
+      }
+    ],
+    "Y22": [
+      {
+        "question_id": "Y20",
+        "operator": "eq",
+        "value": "Publicly accessible"
+      }
+    ],
+    "Y25": [
+      {
+        "question_id": "Y24",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "fields": [
+    "first-name",
+    "last-name",
+    "pref-name",
+    "email-inst",
+    "researcher-addr-city",
+    "researcher-addr-state",
+    "researcher-addr-country",
+    "profile-inst",
+    "profile-platform",
+    "orcid",
+    "cv",
+    "discipline-expertise",
+    "prev-experience",
+    "prev-experience-detail",
+    "person-commercial-purpose"
+  ]
+}

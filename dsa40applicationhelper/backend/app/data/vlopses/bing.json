@@ -1,0 +1,126 @@
+{
+  "info": {
+    "name": "Bing",
+    "platform_information": "https://support.microsoft.com/en-us/topic/bing-qualified-researcher-program-b1c5a4b6-3ad6-4c8c-963d-a395c7766c85",
+    "account_required": false,
+    "application_link": "https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_LeIU5Rc-pEi8af8aM27jhUNUwzMUhaSVVNOVBXVjdVSkhaQVhDR1NHMS4u",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "bing-researcher",
+        "text": "Microsoft's Bing Qualified Researcher Program may require acceptance of program terms as part of the application or approval process.",
+        "highlights": [
+          "Bing Qualified Researcher Program"
+        ],
+        "links": [
+          {
+            "label": "Bing Qualified Researcher Program",
+            "url": "https://support.microsoft.com/en-us/topic/bing-qualified-researcher-program-b1c5a4b6-3ad6-4c8c-963d-a395c7766c85"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "Review Microsoft's researcher program documentation for eligibility and any terms presented during application.",
+      "Data access conditions and use restrictions will be set by Microsoft on approval."
+    ]
+  },
+  "mappings": {
+    "B1": {
+      "operation": "literal-yes"
+    },
+    "B2": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "B3": "email-inst",
+    "B4": "org-name",
+    "B5": {
+      "src": [
+        "org-addr-street",
+        "org-addr-city",
+        "org-addr-postcode",
+        "org-addr-state"
+      ],
+      "operation": "join-comma"
+    },
+    "B6": "org-addr-country",
+    "B7": "org-website",
+    "B8": "profile-inst",
+    "B9": "profile-platform",
+    "B10": "org-role",
+    "B11": "org-department",
+    "B12": {
+      "src": "funding-received",
+      "operation": "format-funding-sources-text"
+    },
+    "B13": "prev-experience",
+    "B14": "prev-experience-detail",
+    "B15": "org-type",
+    "B16": "org-name",
+    "B17": "person-commercial-purpose",
+    "B18": "research-title",
+    "B19": "research-summary",
+    "B20": "research-sysrisk",
+    "B21": {
+      "src": [
+        "data-acc-start",
+        "data-acc-end"
+      ],
+      "operation": "make-duration"
+    },
+    "B22": "research-publication-bin",
+    "B23": "research-commercial-purpose",
+    "B24": {
+      "src": [
+        "tom-storage-start",
+        "tom-storage-end"
+      ],
+      "operation": "make-duration"
+    },
+    "B25": "tom-storagelocation",
+    "B26": "collab-binary",
+    "B27": "collab-list",
+    "B28": "tom-responsible"
+  },
+  "conditions": {
+    "B14": [
+      {
+        "question_id": "B13",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "B15": [
+      {
+        "question_id": "B13",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "B16": [
+      {
+        "question_id": "B13",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "B17": [
+      {
+        "question_id": "B13",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "B27": [
+      {
+        "question_id": "B26",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  }
+}

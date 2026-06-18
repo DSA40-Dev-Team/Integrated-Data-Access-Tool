@@ -1,1 +1,93 @@
-{"info":{"name":"X","platform_information":null,"account_required":false,"application_link":"https://docs.google.com/forms/d/e/1FAIpQLSdo0O-D6Kxa3cV4g1JLz2T_0Sk3hdEnTdv8dJmibagCnzJ7kg/viewform","modality":"form"},"mappings":{"X1":{"src":["first-name","last-name"],"operation":"join-space"},"X2":"email-inst","X3":"org-name","X4":{"src":["affiliation-type","np-status"],"operation":"join-paragraph"},"X5":"funding-sources","X6":"commercial-purpose","X7":"tom-general","X8":{"src":["research-title","research-summary","research-sysrisk","research-publication"],"operation":"join-paragraph"},"X9":{"src":["data-requested","data-geoscope","data-expl"],"operation":"join-paragraph"},"X10":{"src":["data-acc-start","data-acc-end"],"operation":"join-date-range"}},"conditions":{}}
+{
+  "info": {
+    "name": "X",
+    "platform_information": "https://developer.x.com/en/docs/twitter-api",
+    "account_required": false,
+    "application_link": "https://docs.google.com/forms/d/e/1FAIpQLSdo0O-D6Kxa3cV4g1JLz2T_0Sk3hdEnTdv8dJmibagCnzJ7kg/viewform",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "X11",
+        "text": "If your application is approved, your access to the X API is governed by the X Developer Agreement and Developer Policy.",
+        "highlights": [
+          "X Developer Agreement",
+          "Developer Policy"
+        ],
+        "links": [
+          {
+            "label": "X Developer Agreement",
+            "url": "https://developer.x.com/en/developer-terms/agreement"
+          },
+          {
+            "label": "X Developer Policy",
+            "url": "https://developer.x.com/en/developer-terms/policy"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "If approved, the X Developer Agreement and Developer Policy govern all API access.",
+      "Use restrictions may limit research on protests, rallies, community organising, and other sensitive events.",
+      "Profiling or segmenting users by political beliefs, health, crime allegations, or other sensitive categories may be prohibited.",
+      "You may not use X data to fine-tune or train foundation or frontier models.",
+      "Licensed Material and derivatives generally cannot be shared outside persons named in your approved application (DSC disclosure excepted under Article 40(4)).",
+      "You must delete or modify content within 24 hours if it is removed from X.",
+      "Broad indemnification obligations apply for use inconsistent with the agreement."
+    ]
+  },
+  "mappings": {
+    "X1": {
+      "src": [
+        "first-name",
+        "last-name"
+      ],
+      "operation": "join-space"
+    },
+    "X2": "email-inst",
+    "X3": "org-name",
+    "X4": {
+      "src": "org-name",
+      "operation": "format-org-affiliation"
+    },
+    "X5": {
+      "src": "funding-received",
+      "operation": "apple-funding-disclosure"
+    },
+    "X6": {
+      "src": "org-commercial-purpose",
+      "operation": "x-commercial-interests"
+    },
+    "X7": {
+      "src": [
+        "tom-technical",
+        "tom-organisational"
+      ],
+      "operation": "format-tom-summary"
+    },
+    "X8": {
+      "src": [
+        "research-title",
+        "research-summary",
+        "research-sysrisk",
+        "research-publication"
+      ],
+      "operation": "join-paragraph"
+    },
+    "X9": {
+      "src": [
+        "data-requested",
+        "data-geoscope",
+        "data-expl"
+      ],
+      "operation": "join-paragraph"
+    },
+    "X10": {
+      "src": [
+        "data-acc-start",
+        "data-acc-end"
+      ],
+      "operation": "make-duration"
+    }
+  },
+  "conditions": {}
+}

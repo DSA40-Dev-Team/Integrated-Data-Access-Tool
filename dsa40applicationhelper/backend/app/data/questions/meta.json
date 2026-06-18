@@ -1,0 +1,323 @@
+[
+  {
+    "id": "M1",
+    "text": "Legal first name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null
+  },
+  {
+    "id": "M2",
+    "text": "Legal last name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null
+  },
+  {
+    "id": "M3",
+    "text": "Preferred name (optional)",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null
+  },
+  {
+    "id": "M4",
+    "text": "Your country",
+    "required": true,
+    "input_type": "selection",
+    "details": "Your country of residence",
+    "config": {
+      "type": "selection",
+      "options": [
+        "<COUNTRY_LIST>"
+      ]
+    }
+  },
+  {
+    "id": "M5",
+    "text": "Your state or province",
+    "required": true,
+    "input_type": "text",
+    "details": "Your state or province of residence",
+    "config": null
+  },
+  {
+    "id": "M6",
+    "text": "Your city",
+    "required": true,
+    "input_type": "text",
+    "details": "Your city of residence",
+    "config": null
+  },
+  {
+    "id": "M7",
+    "text": "Organizational email",
+    "required": true,
+    "input_type": "text",
+    "details": "Use the email address given to you by your associated research institution or organization. Do not supply a personal email address.",
+    "config": null
+  },
+  {
+    "id": "M8",
+    "text": "Your discipline or area of expertise",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Business communication",
+        "Civic communication",
+        "Climate and environment",
+        "Computer science",
+        "Coordinated inauthentic behavior",
+        "Digital culture",
+        "Education",
+        "Election monitoring",
+        "Fact-checking",
+        "Hate speech and extremism",
+        "Health communication",
+        "Journalism, news and media",
+        "Marketing",
+        "Other",
+        "Political communication",
+        "Public health",
+        "Science communication",
+        "Trust and safety"
+      ]
+    }
+  },
+  {
+    "id": "M9",
+    "text": "ORCID iD",
+    "required": false,
+    "input_type": "text",
+    "details": "This is the unique, persistent digital identifier provided by ORCID (Open Researcher and Contributor ID).",
+    "config": null
+  },
+  {
+    "id": "M10",
+    "text": "Your resume or CV",
+    "required": false,
+    "input_type": "file_upload",
+    "details": "Upload your resume or CV in PDF or Word format.",
+    "config": null
+  },
+  {
+    "id": "M11",
+    "text": "Organization name",
+    "required": true,
+    "input_type": "text",
+    "details": "Search for your organization's name in the dropdown. If you do not see it, enter the name manually. Make sure to enter the full name of your organization.",
+    "config": null
+  },
+  {
+    "id": "M12",
+    "text": "Organization country",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": null
+  },
+  {
+    "id": "M13",
+    "text": "Organization type",
+    "required": true,
+    "input_type": "selection",
+    "details": "Select one from the dropdown list.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Academic institution",
+        "Government agency",
+        "Independent research organization (IRO)",
+        "Intergovernmental organization (IGO)",
+        "Non-governmental organization (NGO)",
+        "Other"
+      ]
+    }
+  },
+  {
+    "id": "M14",
+    "text": "Organization website",
+    "required": true,
+    "input_type": "text",
+    "details": "Enter the landing page of the website of your organization.",
+    "config": null
+  },
+  {
+    "id": "M15",
+    "text": "Department name",
+    "required": true,
+    "input_type": "text",
+    "details": "If there is no separate department within your institution, write \"N/A\" in this field.",
+    "config": null
+  },
+  {
+    "id": "M16",
+    "text": "Your role at organization",
+    "required": true,
+    "input_type": "selection",
+    "details": "Select one from the dropdown list. If you select Other, specify your role in the Your role at organization (other) text field.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Assistant professor",
+        "Associate professor",
+        "Independent researcher",
+        "Lecturer",
+        "Master's student",
+        "Other",
+        "PhD student",
+        "Postdoctoral fellow",
+        "Professor",
+        "Staff researcher"
+      ]
+    }
+  },
+  {
+    "id": "M17",
+    "text": "Your role at organization (other)",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null
+  },
+  {
+    "id": "M18",
+    "text": "Link to your profile or page on your organization's website",
+    "required": true,
+    "input_type": "text",
+    "details": "Provide a URL to help us verify your organizational affiliation. Acceptable links may include an active organizational web profile or bio, an organizational directory or staff list, or the webpage of your research group or lab. If you don't have a URL, please provide an explanation in this field and proceed with submitting your application. After submission, CASD may request additional documentation when reviewing your application.",
+    "config": null
+  },
+  {
+    "id": "M19",
+    "text": "Research program title",
+    "required": true,
+    "input_type": "text",
+    "details": "Enter a descriptive name for your research program. For example, \"Social media usage patterns among European political parties\". This title cannot be changed once your application is submitted.\nmax. 60 characters",
+    "config": null
+  },
+  {
+    "id": "M20",
+    "text": "Research program description",
+    "required": true,
+    "input_type": "text",
+    "details": "Explain in greater detail how your proposed research program or project will contribute to advancing knowledge within a scientific discipline or how it furthers social good in the public interest. Your response should also describe your main area or areas of focus, objectives, or driving questions that you hope to answer with your research.\nmind. 2000 characters, mind. 10 words, max. 4000 characters",
+    "config": null
+  },
+  {
+    "id": "M21",
+    "text": "Relevant data for your research",
+    "required": true,
+    "input_type": "text",
+    "details": "Explain in greater detail what types of MCL data you plan to access and describe how that data is relevant to your research project or program outlined above. For more information about the available data types, see the product documentation for MCL: https://developers.facebook.com/docs/content-library-and-api",
+    "config": null
+  },
+  {
+    "id": "M22",
+    "text": "Will your research contribute to the detection, identification and understanding of systemic risks in the European Union?",
+    "required": true,
+    "input_type": "selection",
+    "details": "Choose the applicable answer.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "M23a",
+    "text": "Also apply for Meta Content Library API (via secure computing platform)",
+    "required": true,
+    "input_type": "selection",
+    "details": "The MCL web-based tool is always included. Select Yes only if you also need API access via a secure computing platform.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "M23",
+    "text": "Select research tools",
+    "required": true,
+    "input_type": "selection",
+    "details": "The first option, Meta Content Library (web-based tool), is automatically selected. To also apply for MCL API access, select Meta Content Library API (via secure computing platform).",
+    "config": {
+      "type": "selection",
+      "options": [
+        "MCL (web-based tool)",
+        "MCL API (via secure computing platform)"
+      ]
+    }
+  },
+  {
+    "id": "M24",
+    "text": "Select a secure computing platform",
+    "required": true,
+    "input_type": "selection",
+    "details": "If you are also applying for MCL API, choose a secure computing platform to access MCL API. Learn more about Meta Secure Research Environment and SOMAR Virtual Data Enclave. If you are a lead researcher, you will be able to select which secure computing platform you and your research team will use. All collaborators under a single lead researcher must use the same secure computing platform. In addition, if you are approved for multiple research programs, you must use the same secure computing platform for all of these.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Meta Secure Research Environment",
+        "SOMAR Virtual Data Enclave"
+      ]
+    }
+  },
+  {
+    "id": "M25",
+    "text": "I confirm that I have read the product documentation for Meta Content Library and/or that I understand the various fields, data types, and API endpoints (if applicable) surfaced through MCL.",
+    "required": true,
+    "input_type": "selection",
+    "details": "MCL is available for research that advances scientific knowledge or furthers social good in the public interest.",
+    "config": null
+  },
+  {
+    "id": "M26",
+    "text": "I confirm that the research I propose to conduct with Meta Content Library either contributes to advancing knowledge within a scientific discipline or furthers social good in the public interest.",
+    "required": true,
+    "input_type": "selection",
+    "details": "Understanding MCL before you apply ensures that its data are appropriate to your research goals.",
+    "config": null
+  },
+  {
+    "id": "M26a",
+    "text": "Will you provide collaborators access to the data?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "M27",
+    "text": "Collaborator Emails",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null
+  },
+  {
+    "id": "M28",
+    "text": "By proceeding, I confirm the information provided in the application is my information, the Facebook profile provided is my own personal profile and not a profile shared with anyone else, and that I have read and understand the Terms and Conditions including the Data Processing Agreement and Terms of Service. I consent to and understand that my application information will be used by Meta and Meta's service providers for the purpose of reviewing my eligibility to access the Research Tools. I also understand my application information may be used to provide partner support and improve the Research Tools in accordance with our Privacy Policy.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": null
+  }
+]

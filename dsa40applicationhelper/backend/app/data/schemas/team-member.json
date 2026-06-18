@@ -1,0 +1,16 @@
+{
+  "sections": [
+    {
+      "key": "person",
+      "type": "composite",
+      "schema": "person-profile"
+    },
+    {
+      "key": "affiliations",
+      "type": "repeatable",
+      "schema": "affiliation-profile",
+      "min_items": 1,
+      "item_label": "Affiliation"
+    }
+  ]
+}

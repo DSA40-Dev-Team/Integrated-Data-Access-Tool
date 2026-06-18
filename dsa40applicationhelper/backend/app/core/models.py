@@ -8,8 +8,9 @@ from app.schemas import ConstraintConfig, config_adapter
 
 
 class PlatformMappingComplex(BaseModel):
-    src: str | list[str]
     operation: str
+    src: str | list[str] | None = None
+    value: str | None = None
 
 
 PlatformMapping = str | PlatformMappingComplex

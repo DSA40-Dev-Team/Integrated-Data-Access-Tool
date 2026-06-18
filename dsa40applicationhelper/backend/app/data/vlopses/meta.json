@@ -1,1 +1,125 @@
-{"info":{"name":"Meta","platform_information":"https://developers.facebook.com/docs/content-library-and-api/get-access/mcl-application-guide","account_required":true,"application_link":"https://icpsr.atlassian.net/servicedesk/customer/portal/53/group/80/create/251","modality":"form"},"mappings":{"M1":"first-name","M2":"last-name","M3":"pref-name","M4":"researcher-addr-country","M5":"researcher-addr-state","M6":"researcher-addr-city","M7":"email-inst","M8":"discipline-expertise","M9":"orcid","M10":"cv","M11":"org-name","M12":"org-addr-country","M13":"affiliation-type","M14":"org-website","M15":"org-department","M16":"org-role","M17":"org-role","M18":"profile-inst","M19":"research-title","M20":"research-summary","M21":"data-requested"},"conditions":{"M17":[{"question_id":"M16","operator":"eq","value":"Other"}]}}
+{
+  "info": {
+    "name": "Meta",
+    "platform_information": "https://developers.facebook.com/docs/content-library-and-api/get-access/mcl-application-guide",
+    "account_required": true,
+    "application_link": "https://www.facebook.com/research-tools-manager",
+    "modality": "form",
+    "disclaimers": [
+      {
+        "id": "M25",
+        "text": "I confirm that I have read the product documentation for Meta Content Library and/or that I understand the various fields, data types, and API endpoints (if applicable) surfaced through MCL.",
+        "highlights": [
+          "product documentation for Meta Content Library",
+          "API endpoints",
+          "advances scientific knowledge or furthers social good in the public interest"
+        ],
+        "links": [
+          {
+            "label": "MCL product documentation",
+            "url": "https://developers.facebook.com/docs/content-library-and-api"
+          }
+        ]
+      },
+      {
+        "id": "M26",
+        "text": "I confirm that the research I propose to conduct with Meta Content Library either contributes to advancing knowledge within a scientific discipline or furthers social good in the public interest.",
+        "highlights": [
+          "advancing knowledge within a scientific discipline",
+          "furthers social good in the public interest"
+        ]
+      },
+      {
+        "id": "M28",
+        "text": "By proceeding, I confirm the information provided in the application is my information, the Facebook profile provided is my own personal profile and not a profile shared with anyone else, and that I have read and understand the Terms and Conditions including the Data Processing Agreement and Terms of Service. I consent to and understand that my application information will be used by Meta and Meta's service providers for the purpose of reviewing my eligibility to access the Research Tools. I also understand my application information may be used to provide partner support and improve the Research Tools in accordance with our Privacy Policy.",
+        "highlights": [
+          "Terms and Conditions",
+          "Data Processing Agreement",
+          "Terms of Service",
+          "Privacy Policy",
+          "my own personal profile"
+        ],
+        "links": [
+          {
+            "label": "Privacy Policy",
+            "url": "https://www.facebook.com/legal/terms/Privacy"
+          },
+          {
+            "label": "Terms of Service",
+            "url": "https://www.facebook.com/terms/"
+          },
+          {
+            "label": "Privacy Policy (Meta policy)",
+            "url": "https://facebook.com/policy"
+          }
+        ]
+      }
+    ],
+    "term_implications": [
+      "If approved for API or Virtual Data Enclave access, your institution may need to sign the Restricted Data Use Agreement (RDUA) via ICPSR/SOMAR.",
+      "The RDUA can require a PhD-holding lead investigator and faculty-level appointment, stricter than DSA Article 40(12).",
+      "Secure environments typically prevent downloading data; analysis happens in a monitored cleanroom.",
+      "Statistical outputs may require ICPSR disclosure review before sharing outside the project.",
+      "Annual reporting to ICPSR (IRB approvals, publications, staff changes) may be required for RDUA access.",
+      "Broad indemnity obligations may apply to your institution under the RDUA."
+    ]
+  },
+  "mappings": {
+    "M1": "first-name",
+    "M2": "last-name",
+    "M3": "pref-name",
+    "M4": "researcher-addr-country",
+    "M5": "researcher-addr-state",
+    "M6": "researcher-addr-city",
+    "M7": "email-inst",
+    "M8": "discipline-expertise",
+    "M9": "orcid",
+    "M10": "cv",
+    "M11": "org-name",
+    "M12": "org-addr-country",
+    "M13": "org-type",
+    "M14": "org-website",
+    "M15": "org-department",
+    "M16": "org-role",
+    "M17": "org-role",
+    "M18": "profile-inst",
+    "M19": "research-title",
+    "M20": "research-summary",
+    "M21": "data-requested",
+    "M22": "research-sysrisk-binary",
+    "M23a": "meta-mcl-api-binary",
+    "M23": {
+      "src": "meta-mcl-api-binary",
+      "operation": "meta-mcl-research-tools"
+    },
+    "M24": "meta-secure-platform",
+    "M26a": "collab-binary",
+    "M27": {
+      "src": "collab-researchers",
+      "operation": "meta-collab-emails"
+    }
+  },
+  "conditions": {
+    "M17": [
+      {
+        "question_id": "M16",
+        "operator": "eq",
+        "value": "Other"
+      }
+    ],
+    "M24": [
+      {
+        "question_id": "M23a",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ],
+    "M27": [
+      {
+        "question_id": "M26a",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  }
+}

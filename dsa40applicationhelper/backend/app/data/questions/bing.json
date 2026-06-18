@@ -1,0 +1,319 @@
+[
+  {
+    "id": "B1",
+    "text": "Do you plan to conduct your research under Article 40(12) of the Digital Services Act",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "B2",
+    "text": "Research Contact Full Name (Last Name, Full Name)",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "B3",
+    "text": "Email Contact",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "B4",
+    "text": "Research Organization Name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B5",
+    "text": "Organization Address",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B6",
+    "text": "Organization Country",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B7",
+    "text": "Organization Website",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B8",
+    "text": "Link to Your Profile on Organization Website",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B9",
+    "text": "Link to Your LinkedIn Profile",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "B10",
+    "text": "Job Title",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Faculty",
+        "Researcher",
+        "Student",
+        "Staff",
+        "Other"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B11",
+    "text": "Department",
+    "required": true,
+    "input_type": "text",
+    "details": "Name and organization of other researchers involved, including links to the profiles on the organization(s) site",
+    "config": null,
+    "classification": "Collaboration"
+  },
+  {
+    "id": "B12",
+    "text": "What are the sources of fundings for this research",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "B13",
+    "text": "Have you applied for research access with Bing before",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Previous Experience"
+  },
+  {
+    "id": "B14",
+    "text": "If yes for the above: please explain the date of request, outcome, and subject of the research.",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Previous Experience"
+  },
+  {
+    "id": "B15",
+    "text": "Are you affiliated to any research institution pursuant to Art. 2(1) of Directive 2019/790?",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B16",
+    "text": "If yes, which research institution?",
+    "required": false,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "B17",
+    "text": "Are you an independent researcher that does not depend on commercial interest?",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "B18",
+    "text": "Research Title",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "B19",
+    "text": "Your Research Project",
+    "required": true,
+    "input_type": "text",
+    "details": "Tell us about your research project. Please provide a detailed project proposal that includes: research problem to be solved, data to be used, project timeline, key milestones, and anticipated outcomes.",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "B20",
+    "text": "How will your research contribute to the detection, identification and understanding of the systemic risks identified in Article 34(1) of the EU Digital Services Act or otherwise meet the requirements of Article 40(12) of the DSA?",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "B21",
+    "text": "Duration of requested public data gathering",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "3 months",
+        "6 months",
+        "More"
+      ]
+    },
+    "classification": "Requested Data"
+  },
+  {
+    "id": "B22",
+    "text": "Do you plan to publish your research",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "B23",
+    "text": "Does your research have any commercial purpose",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "B24",
+    "text": "How long do you expect to store the requested public data",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "3 months",
+        "6 months",
+        "More"
+      ]
+    },
+    "classification": "Data Security"
+  },
+  {
+    "id": "B25",
+    "text": "In which country do you expect to store the requested public data",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Data Security"
+  },
+  {
+    "id": "B26",
+    "text": "Except for those you identified in response to Question 11, will you provide others access to the requested public data",
+    "required": true,
+    "input_type": "selection",
+    "details": "Overflow from B11",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Collaboration"
+  },
+  {
+    "id": "B27",
+    "text": "If yes for the above: please identify the persons/category of persons and the purpose?",
+    "required": true,
+    "input_type": "text",
+    "details": "Overflow from B11",
+    "config": null,
+    "classification": "Collaboration"
+  },
+  {
+    "id": "B28",
+    "text": "Who will be responsible for compliance with GDPR for any personal data included in the requested public data?",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Data Security"
+  }
+]

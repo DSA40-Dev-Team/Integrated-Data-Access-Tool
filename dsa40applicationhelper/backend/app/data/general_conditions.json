@@ -1,0 +1,110 @@
+{
+  "team-organisations": [
+    [
+      {
+        "question_id": "collab-binary",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "collab-researchers": [
+    [
+      {
+        "question_id": "collab-binary",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "collab-list": [
+    [
+      {
+        "question_id": "collab-binary",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "collab-share": [
+    [
+      {
+        "question_id": "collab-share-binary",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "tom-purposelimit": [
+    [
+      {
+        "question_id": "purpose-limitation-binary",
+        "operator": "eq",
+        "value": "No"
+      }
+    ]
+  ],
+  "tech-client-public-link": [
+    [
+      {
+        "question_id": "tech-client-visibility",
+        "operator": "eq",
+        "value": "Publicly accessible"
+      }
+    ]
+  ],
+  "tech-client-demo-access": [
+    [
+      {
+        "question_id": "tech-client-visibility",
+        "operator": "eq",
+        "value": "Publicly accessible"
+      }
+    ]
+  ],
+  "tech-client-project-numbers": [
+    [
+      {
+        "question_id": "tech-client-multi-project",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "research-publication": [
+    [
+      {
+        "question_id": "research-publication-bin",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "funding-sources": [
+    [
+      {
+        "question_id": "funding-received",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "funding-entries": [
+    [
+      {
+        "question_id": "funding-received",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ],
+  "funding-evidence": [
+    [
+      {
+        "question_id": "funding-received",
+        "operator": "eq",
+        "value": "Yes"
+      }
+    ]
+  ]
+}

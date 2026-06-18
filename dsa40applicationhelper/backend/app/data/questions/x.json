@@ -1,0 +1,106 @@
+[
+  {
+    "id": "X1",
+    "text": "Contact Name",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "X2",
+    "text": "Contact Email Address",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "X3",
+    "text": "Name of Organization",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "X4",
+    "text": "Organization Affiliation",
+    "required": true,
+    "input_type": "text",
+    "details": "Describe your organization’s affiliation (e.g. university, lab, NGO, etc.) and not-for-profit status.",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "X5",
+    "text": "Funding",
+    "required": true,
+    "input_type": "text",
+    "details": "Please disclose the funding of your research, including amounts raised and direct and indirect sources of funding.",
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "X6",
+    "text": "Commercial Interests",
+    "required": true,
+    "input_type": "text",
+    "details": "Is your organization independent from commercial interests? Please provide detailed evidence that substantiates your answer. In addition to the information provided in the question above regarding funding, relevant information includes, but is not limited to, the following: (i) purpose and mission, (ii) information about your board members, officers, and individuals with access to X data, (iii) previously published research, (iv) affiliation with other organizations, networks, or causes, and (v) the organization’s membership, shareholders, or grant recipients.",
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "X7",
+    "text": "Data Security and Confidentiality",
+    "required": true,
+    "input_type": "text",
+    "details": "Are you capable of fulfilling the specific data security and confidentiality requirements corresponding to each request and to protect personal data?Please describe the appropriate technical and organizational measures you have put in place to this end, including any compliance certifications.",
+    "config": null,
+    "classification": "Data Security"
+  },
+  {
+    "id": "X8",
+    "text": "Description of Research",
+    "required": true,
+    "input_type": "text",
+    "details": "Please describe in detail the research for which you wish to use data from the X platform.Please describe whether the research will contribute to the detection, identification and understanding of systemic risks in the Union pursuant to Article 34(1), whether the X data will serve any other purpose as part of your research, and whether you plan to publish your research in a particular medium.",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "X9",
+    "text": "Scope of X Data",
+    "required": true,
+    "input_type": "text",
+    "details": "What X data do you wish to receive? Please describe how that data is needed for the research described above and not otherwise currently accessible to you by other sufficient means.",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "X10",
+    "text": "Timeframe",
+    "required": true,
+    "input_type": "text",
+    "details": "How long do you need access to this data? Please provide a detailed justification for this timeframe.",
+    "config": null,
+    "classification": "Requested Data"
+  },
+  {
+    "id": "X11",
+    "text": "Developer Agreement",
+    "required": true,
+    "input_type": "selection",
+    "details": "You agree and acknowledge that, if your application is approved, your access to the X API is governed by the X Developer Agreement and Developer Policy.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  }
+]

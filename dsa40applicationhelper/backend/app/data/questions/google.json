@@ -1,0 +1,570 @@
+[
+  {
+    "id": "G1",
+    "text": "Select the Google Service / Platform that you are requesting access for:",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Maps",
+        "Play",
+        "Search",
+        "Shopping",
+        "YouTube",
+        "Waze"
+      ]
+    },
+    "classification": "Requested Data"
+  },
+  {
+    "id": "G2",
+    "text": "Please select the option applicable",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "New Research Program Application"
+      ]
+    },
+    "classification": "?"
+  },
+  {
+    "id": "G3",
+    "text": "Your Full Legal Name",
+    "required": true,
+    "input_type": "text",
+    "details": "max 200 chars",
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "G4",
+    "text": "Organization Name",
+    "required": true,
+    "input_type": "text",
+    "details": "max 200 chars",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "G5",
+    "text": "Type of Organization",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Academic Institution",
+        "Non-Profit Organization / Charity / NGO",
+        "Gocernment Affiliated Research Organization",
+        "Independent Research Organization",
+        "Other"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "G6",
+    "text": "Organization Website",
+    "required": true,
+    "input_type": "text",
+    "details": "max 200 chars",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "G7",
+    "text": "Organization Address",
+    "required": true,
+    "input_type": "text",
+    "details": "max 200 chars",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "G8",
+    "text": "Your Institutional / Professional Email Address",
+    "required": true,
+    "input_type": "text",
+    "details": "[needs to be verified] If you do not have an institutional email address, please provide proof of your affiliation. Examples include a signed letter or certificate from your institution confirming your association with them.",
+    "config": null,
+    "classification": "Contact Details"
+  },
+  {
+    "id": "G9",
+    "text": "Upload supporting evidence here. Please add all the evidence for this question into one consolidated PDF file",
+    "required": false,
+    "input_type": "file_upload",
+    "details": "19MB limit",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "G10",
+    "text": "Organization Country",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "[EU Countries]"
+      ]
+    },
+    "classification": "Affiliation"
+  },
+  {
+    "id": "G11",
+    "text": "Job Title",
+    "required": true,
+    "input_type": "text",
+    "details": "max 200 chars",
+    "config": null,
+    "classification": "Affiliation"
+  },
+  {
+    "id": "G12",
+    "text": "Research Title",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "G13",
+    "text": "Research Start Date",
+    "required": true,
+    "input_type": "date_select",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "G14",
+    "text": "Research End Date",
+    "required": true,
+    "input_type": "date_select",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "G15",
+    "text": "Expected Publication Date",
+    "required": true,
+    "input_type": "date_select",
+    "details": null,
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "G16",
+    "text": "Will you be partnering with any other research or non-research organization?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Collaboration"
+  },
+  {
+    "id": "G17",
+    "text": "Please list the partners",
+    "required": true,
+    "input_type": "text",
+    "details": "only shown if partnering==Yes",
+    "config": null,
+    "classification": "Collaboration"
+  },
+  {
+    "id": "G18",
+    "text": "Please provide a research proposal that includes the following information: (a) Research question being studied, (b) Data required, (c) Methodology, (d) Research timeline. You can provide the information through this text box (5000 character maximum) and/or upload a document.",
+    "required": true,
+    "input_type": "text",
+    "details": "max 5000 chars",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "G19",
+    "text": "Upload your proposal here. If you have multiple documents for this question, please include them in one consolidated PDF file (19MB limit).",
+    "required": false,
+    "input_type": "file_upload",
+    "details": "19MB limit, alternative to research proposal text box",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "G20",
+    "text": "What type of public data do you plan to access, and how is the data related / relevant to your research proposal?",
+    "required": true,
+    "input_type": "text",
+    "details": "max 3000 chars",
+    "config": null,
+    "classification": "Requested Data"
+  },
+  {
+    "id": "G21",
+    "text": "Which systemic risk(s) are you investigating?",
+    "required": true,
+    "input_type": "multi_select",
+    "details": null,
+    "config": {
+      "type": "multi_select",
+      "options": [
+        "Illegal content",
+        "Fundamental rights",
+        "Civic discourse and electoral processes, and public security",
+        "Gender-based violence, public health, minors and physical and mental well-being"
+      ],
+      "multiple": true
+    },
+    "classification": "Research Project"
+  },
+  {
+    "id": "G22",
+    "text": "Please describe how your research is related to the systemic risk(s) that you are investigating. (3000 character maximum)",
+    "required": true,
+    "input_type": "text",
+    "details": "max 3000 chars",
+    "config": null,
+    "classification": "Research Project"
+  },
+  {
+    "id": "G23",
+    "text": "Does your organization's funding or sponsorship come from one or more of the following types of institutions? If yes, please provide their name(s).",
+    "required": true,
+    "input_type": "multi_select",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Self-funded (i.e.",
+        "by your organization)",
+        "Government agencies",
+        "Private sector organizations",
+        "Other third parties (besides your own organization)"
+      ],
+      "multiple": true
+    },
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "G24",
+    "text": "Enter organization name(s)",
+    "required": false,
+    "input_type": "text",
+    "details": "max 200 chars, if not Self-funded",
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "G25",
+    "text": "Please provide evidence that you / your organization is independent from commercial interests. Examples of evidence include, but are not limited to, the documents listed below. You can also provide any other documents that confirm independence from commercial interests. Use the checkboxes below to indicate the type of evidence you are providing.",
+    "required": true,
+    "input_type": "multi_select",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "URL for pages on your organization's website confirming independence from commercial interests",
+        "Articles of incorporation for your organization",
+        "Certificate of registration for your organization issued by the appropriate government agency",
+        "Official letter certifying your organization's independent status",
+        "Founding legislation or executive order to create your organization",
+        "Tax-exemption certification",
+        "Annual report for your organization confirming independent status",
+        "Bylaws of your organization confirming independent status",
+        "Reports of third-party certification or external audits proving independence",
+        "Other [free form]"
+      ],
+      "multiple": true
+    },
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "G26",
+    "text": "Upload supporting evidence here.",
+    "required": true,
+    "input_type": "file_upload",
+    "details": "Please add all the evidence for this question into one consolidated PDF file (19MB limit)",
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "G27",
+    "text": "Please disclose the funding source(s) for this research project. This should include the name of the funding source, grant year, duration, and amount (in EUR) with any relevant supporting evidence.",
+    "required": true,
+    "input_type": "text",
+    "details": "max 3000 chars",
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "G28",
+    "text": "Upload supporting evidence here.",
+    "required": false,
+    "input_type": "file_upload",
+    "details": "Please add all the evidence for this question into one consolidated PDF file.",
+    "config": null,
+    "classification": "Funding / Commercial Interests"
+  },
+  {
+    "id": "G29",
+    "text": "Is your organization, including all teams involved in this research, capable of fulfilling applicable data security and confidentiality requirements, such as the obligations imposed by the GDPR?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No",
+        "Not Sure"
+      ]
+    },
+    "classification": "Data Security"
+  },
+  {
+    "id": "G30",
+    "text": "Please provide evidence for this such as a GDPR certification, an evaluation report from an independent assessor, or any other appropriate evidence.",
+    "required": false,
+    "input_type": "file_upload",
+    "details": "19MB limit, only shown if security==Yes OR security==Not Sure",
+    "config": null,
+    "classification": "Data Security"
+  },
+  {
+    "id": "G31",
+    "text": "How do you plan to keep the data collected from VLOPs / VLOSEs safe and secure? Please select all that apply.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Strong password policy,Multi-factor authentication,Malware and antivirus protection,Access management (restricting access to individuals with legitimate research purposes),Access logging (record of all individuals accessing data),Secure backup of data accessed / downloaded,Wipeout policy for deleting data periodically and/or at the end of the research",
+        "Periodic training on data securityOther [free form]"
+      ]
+    },
+    "classification": "Data Security"
+  },
+  {
+    "id": "G32",
+    "text": "Please provide any evidence of the above in the next question through the text box and/or the option to upload supporting documents. Please combine evidence for both questions into one consolidated PDF file.Please describe the technical and organizational measures that you have in place to protect the data that you will collect / access for this research. Your answer should cover the following. Please feel free to provide your answer in the text box (3000 character maximum) below and/or upload your answer with any supporting documents you would like to submit.1. What are your organization's data security policies and procedures?2. How will you ensure the confidentiality of any personal data collected?3. How will you store and protect the data access including personal data?4. What are your procedures for handling data breaches?",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Data Security"
+  },
+  {
+    "id": "G33",
+    "text": "Upload supporting evidence here. Please add all the evidence for the two questions above into one consolidated PDF file",
+    "required": false,
+    "input_type": "file_upload",
+    "details": "19MB limit, alternative to data protection description",
+    "config": null,
+    "classification": "Data Security"
+  },
+  {
+    "id": "G34",
+    "text": "Are you the primary point of contact or principal investigator for this proposal?",
+    "required": true,
+    "input_type": "selection",
+    "details": "only if partnering with other researchers/institutions, if No: cannot be submitted",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Collaboration"
+  },
+  {
+    "id": "G35",
+    "text": "Are you collaborating with other members of your organization for this project? (Maximum of 9 additional researchers)",
+    "required": true,
+    "input_type": "selection",
+    "details": "only if partnering with other researchers/institutions",
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Collaboration"
+  },
+  {
+    "id": "G36",
+    "text": "Please ensure that the details of the additional researchers that you have provided are correct and accurate. You will not have an option to amend this information later on. These details will be used to provide access/permissions to researchers in your team working on the same proposal.I have read and agree to the Google Search Researcher Program's Terms of Service and understand(i) my acceptance by and participation in the Researcher Program is subject to the Google Search Researcher Program's Terms of Service;(ii) my access to, and use of, data does and will comply with the Google Search Researcher Program's Terms of Service.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  },
+  {
+    "id": "G37",
+    "text": "To access public data on Maps, you will need to set-up a Google Cloud Platform (GCP) project using the Google account you are using to fill up this form.Note: All data access requests for Maps data must be submitted via this GCP project owned by you through your Google account. Any use of Google Cloud Platform outside of this project will be subject to the then-current Fees for the applicable Service under the Google Cloud Platform Terms of ServiceTo ensure that we are providing access to the correct person, please provide your Google Account information again below.Please provide the email address associated with the Google Account that you are using to(1) fill up this form, AND(2) create a GCP project.",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Legal"
+  },
+  {
+    "id": "G38",
+    "text": "I have read and agree that my current and proposed data access via the GCP project will comply with the Acceptable Use Policy of Google's Researcher Program and the Google Cloud Platform Terms of Service. If there is a conflict between those terms of service, the Acceptable Use Policy of Google's Researcher Program will take precedence. I acknowledge that any use of Google Cloud Platform outside of this project will be subject to the then-current Fees for the applicable Service under the Google Cloud Platform Terms of Service. I understand that Google will monitor my data access and queries for the purpose of detecting violations of the Acceptable Use Policy.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  },
+  {
+    "id": "G39",
+    "text": "Have you scraped [SERVICE] before?",
+    "required": false,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    "classification": "Previous Experience"
+  },
+  {
+    "id": "G40",
+    "text": "How do you plan to scrape [SERVICE]?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "Client-Side ScrapingThird-Party (3P) ToolsBrowser Plug-InsOther [free form]"
+      ]
+    },
+    "classification": "Technical"
+  },
+  {
+    "id": "G41",
+    "text": "Please provide the IP address that you will use to access public data through scraping. What type of IP address are you providing?",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "IPv4IPv6None"
+      ]
+    },
+    "classification": "Technical"
+  },
+  {
+    "id": "G42",
+    "text": "Please provide the static IP address that you will use for scraping public data.",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "G43",
+    "text": "Please confirm that you take responsibility to act in accordance with the Acceptable Use Policy of Google's Researcher Program and the Google Play Terms of Service.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  },
+  {
+    "id": "G44",
+    "text": "Please provide the IP address that you will use to access public data through scraping. What type of IP address are you providing?",
+    "required": true,
+    "input_type": "selection",
+    "details": "Successful research proposals that meet the eligibility criteria will be given permission to access public data through scraping (limited to metadata and excluding media such as video bytes). To provide permissions to the correct recipient, we require the following identifying information:(a) IP address that will be used to scrape public data; (b) Product token stringPlease note: Without this information, your data access activity scraping may be blocked during anti-abuse enforcement, which can impact your research.",
+    "config": {
+      "type": "selection",
+      "options": [
+        "IPv4",
+        "IPv6"
+      ]
+    },
+    "classification": "Technical"
+  },
+  {
+    "id": "G45",
+    "text": "Please provide the static IP address that you will use for scraping public data.",
+    "required": true,
+    "input_type": "text",
+    "details": null,
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "G46",
+    "text": "Please provide your \"product token\" string.",
+    "required": true,
+    "input_type": "text",
+    "details": "A \"product token\" is the \"user agent string\" accompanying all requests for data collection through scraping. The access requests related to this research that originate from your systems must contain this product token, as specified in the Robots Exclusion Protocol standard.",
+    "config": null,
+    "classification": "Technical"
+  },
+  {
+    "id": "G47",
+    "text": "I have read and agree to YouTube's Terms of Service (including the Developer Policies and Google Privacy Policy), and my current and proposed data access will comply with YouTube's Terms of Service.",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": null,
+    "classification": "Legal"
+  },
+  {
+    "id": "G48",
+    "text": "I have read and agree to the Acceptable Use Policy for the Google Researcher Program. My current and proposed access to and use of data is and will be in accordance with this Policy",
+    "required": true,
+    "input_type": "selection",
+    "details": null,
+    "config": {
+      "type": "selection",
+      "options": [
+        "I agree"
+      ]
+    },
+    "classification": "Legal"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "fields": [
+    "funding-source-name",
+    "funding-source-type",
+    "funding-amount",
+    "funding-grant-year",
+    "funding-duration",
+    "funding-percentage",
+    "funding-terms",
+    "funding-notes"
+  ]
+}

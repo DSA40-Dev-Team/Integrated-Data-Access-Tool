@@ -21,13 +21,11 @@ class Mapping:
 
 
 def hydrate_mapping(vlopse_question: str, mapping_definition: PlatformMapping):
+    from app.core.conditions_util import general_ids_from_mapping
+
     if isinstance(mapping_definition, str):
         return Mapping(vlopse_question, [mapping_definition])
-    elif isinstance(mapping_definition.src, list):
-        return Mapping(vlopse_question, mapping_definition.src)
-    elif isinstance(mapping_definition.src, str):
-        return Mapping(vlopse_question, [mapping_definition.src])
-    raise ValueError(f"Invalid mapping defition {mapping_definition}")
+    return Mapping(vlopse_question, general_ids_from_mapping(mapping_definition))
 
 
 class MappingValidationError(Exception):
@@ -46,7 +44,7 @@ class QuestionMapper:
         return cls(mapping, questions)
 
     def _validate(self):
-        question_ids = [q.id for q in self.questions]
+        question_ids = [q.id for q in self.questions.get_all_unified()]
         invalid_mappings: set[Mapping] = set()
         # TODO: Check if a mapping refers to a question not defined by the vlopse
         for vlopse, mappings in self._mapping.items():

@@ -1,0 +1,11 @@
+{
+  "fields": [
+    "collab-binary",
+    "collab-list",
+    "collab-lead",
+    "collab-lead-firstname",
+    "collab-lead-lastname",
+    "collab-share-binary",
+    "collab-share"
+  ]
+}

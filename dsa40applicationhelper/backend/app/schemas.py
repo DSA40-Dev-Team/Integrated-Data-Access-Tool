@@ -1,8 +1,25 @@
 import pathlib
+import re
 from typing import Annotated, Literal, Union
 
 from pycountry import countries
 from pydantic import BaseModel, Field, TypeAdapter
+
+_ORCID_PATTERN = re.compile(
+    r"^(?:https?://orcid\.org/)?(\d{4}-\d{4}-\d{4}-\d{3}[\dX])$",
+    re.IGNORECASE,
+)
+
+
+def _orcid_checksum_valid(orcid: str) -> bool:
+    digits = orcid.replace("-", "")
+    total = 0
+    for digit in digits[:-1]:
+        total = (total + int(digit)) * 2
+    remainder = total % 11
+    check = (12 - remainder) % 11
+    expected = "X" if check == 10 else str(check)
+    return digits[-1].upper() == expected
 
 
 class ISO_3166_1(BaseModel):
@@ -31,6 +48,29 @@ class Selection(BaseModel):
         return None
 
 
+class MultiSelect(BaseModel):
+    type: Literal["multi_select"]
+    options: list[str] = Field(default_factory=list)
+
+    def validate_answer(self, value: str | list[str]) -> str | None:
+        if value is None or (isinstance(value, str) and not str(value).strip()):
+            return None
+        if isinstance(value, list):
+            values = [str(v).strip() for v in value if str(v).strip()]
+        elif "; " in value:
+            values = [part.strip() for part in value.split("; ") if part.strip()]
+        else:
+            values = [part.strip() for part in value.split(";") if part.strip()]
+        if self.options:
+            invalid = [v for v in values if v not in self.options]
+            if invalid:
+                return (
+                    f"Invalid option(s): {', '.join(invalid)}. "
+                    f"Possible: {', '.join(self.options)}"
+                )
+        return None
+
+
 class Boolean(BaseModel):
     type: Literal["boolean"]
 
@@ -43,10 +83,29 @@ class Boolean(BaseModel):
 class Text(BaseModel):
     type: Literal["text"]
     max_length: int | None = None
+    multiline: bool = False
+    rows: int = 4
 
     def validate_answer(self, value: str) -> str | None:
         if self.max_length and len(value) > self.max_length:
             return f"Must not exceed {self.max_length} characters"
+        return None
+
+
+class Orcid(BaseModel):
+    type: Literal["orcid"]
+
+    def validate_answer(self, value: str) -> str | None:
+        if not value.strip():
+            return None
+        match = _ORCID_PATTERN.match(value.strip())
+        if match is None:
+            return (
+                "Invalid ORCID iD. Expected format: 0000-0002-1825-0097 "
+                "(optional https://orcid.org/ prefix)."
+            )
+        if not _orcid_checksum_valid(match.group(1)):
+            return "Invalid ORCID iD checksum."
         return None
 
 
@@ -74,7 +133,7 @@ class DateSelect(BaseModel):
 
 
 ConstraintConfig = Annotated[
-    Union[Selection | Text | ISO_3166_1], Field(discriminator="type")
+    Union[Selection, MultiSelect, Text, ISO_3166_1, Orcid], Field(discriminator="type")
 ]
 
 
