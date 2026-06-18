@@ -119,6 +119,14 @@ function rowQuestionIds(row: FormRow): string[] {
   return [row.question.id];
 }
 
+function isRowRequired(question: DsaQuestion, required: RequiredContext): boolean {
+  return (
+    question.required ||
+    required.requiredQuestionIds.has(question.id) ||
+    required.requiredFieldIds.has(question.id)
+  );
+}
+
 export type SectionStats = {
   id: string;
   label: string;
@@ -158,15 +166,26 @@ export function sectionStatsForRows(
 
     const units = fieldUnitsForRows([row], visibility, values, conditions, required);
     if (units.length === 0) {
-      stats.total += 1;
-      if (row.kind === "single" && (visibility[row.question.id] || row.question.required)) {
-        if (isAnswerFilled(values[row.question.id], row.question.input_type)) {
-          stats.filled += 1;
-        }
-        if (row.question.required) {
-          stats.requiredTotal += 1;
-          if (isAnswerFilled(values[row.question.id], row.question.input_type)) {
-            stats.requiredFilled += 1;
+      if (row.kind === "single") {
+        const question = row.question;
+        const visible = visibility[question.id] ?? true;
+        if (!visible && !question.required) {
+          // Hidden optional row — do not affect section progress.
+        } else {
+          const filled = isAnswerFilled(values[question.id], question.input_type);
+          const rowRequired = isRowRequired(question, required);
+          const isStructured =
+            question.input_type === "composite_group" ||
+            question.input_type === "repeatable_group";
+
+          // Empty optional composites/repeatables (e.g. collaborators removed) are complete.
+          if (!(isStructured && !filled && !rowRequired)) {
+            stats.total += 1;
+            if (filled) stats.filled += 1;
+            if (rowRequired) {
+              stats.requiredTotal += 1;
+              if (filled) stats.requiredFilled += 1;
+            }
           }
         }
       }

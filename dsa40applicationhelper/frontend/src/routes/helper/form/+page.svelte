@@ -29,6 +29,7 @@
   } from "$lib/formSections";
   import { formatPlatformLabel, platformNamesForIds } from "$lib/platformLabels";
   import { computeReadiness, createRequiredContext } from "$lib/formReadiness";
+  import { pruneHiddenFieldValues } from "$lib/pruneHiddenValues";
   import {
     clearFormDraft,
     consumeMigrationSource,
@@ -118,6 +119,12 @@
 
   $effect(() => {
     if (form?.success) {
+      values = pruneHiddenFieldValues(
+        values,
+        data.questions,
+        data.conditions,
+        data.vlopseIds,
+      );
       showForm = false;
       tick().then(() => {
         resultsAnchor?.scrollIntoView({ behavior: "smooth", block: "start" });
