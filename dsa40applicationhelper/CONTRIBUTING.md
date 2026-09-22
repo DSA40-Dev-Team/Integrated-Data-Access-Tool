@@ -73,7 +73,7 @@ Refs: #5
 
 ## CI pipeline
 
-Defined in `.github/workflows/test_backend.yml`. Two jobs run in parallel during the
+Defined in `../.github/workflows/test_backend.yml`. Two jobs run in parallel during the
 migration:
 
 - **`test-backend`** — the existing MVP (FastAPI) test suite, unchanged. Runs until
