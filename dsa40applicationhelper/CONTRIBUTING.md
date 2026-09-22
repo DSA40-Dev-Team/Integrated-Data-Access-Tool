@@ -15,23 +15,25 @@ behavior against old, and for T1's mapping engine port specifically. The new Dja
 lives in a sibling folder, `webapp/`. Once M1 is signed off, `backend/` and `frontend/` get
 deleted in a dedicated cleanup PR — not before.
 
-## Branching model
+## Branching model and commit messages
 - `main` is always deployable.
-- Work happens on short-lived feature branches off `main`, with `<type>/<short-description>`.
-  types:
-  - 
+- Work happens on short-lived feature branches off `main`, with `<type>(<wp>)/<short-description>`.
+  types, based on [Conventional Commits](https://www.conventionalcommits.org/):
+  - `feat/`: new functionality
+  - `fix/`: bug fixes
+  - `chore/`: tooling, CI, dependency bumps, non-code housekeeping
+  - `docs/`: documentation
+  - `test/`: adding/fixing tests with no behavior change
+  - `refactor/`: Restructuring code with no functional change
+
+Example: `feat(t3): add email verification flow`
+ 
 - No direct commits to `main` — everything goes through a PR, including work by Luis and
   Nico on their own WPs.
 - Rebase (don't merge) your branch onto `main` before opening a PR, to keep history readable.
 - Keep branches short-lived (days, not weeks) — split large WPs (like T1) into smaller PRs
   where possible rather than one giant branch.
   
-  ## Commit messages
-
-Use [Conventional Commits](https://www.conventionalcommits.org/):
-`feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`.
-Example: `feat(t3): add email verification flow`
-
 ## Pull requests
 
 - One PR = one WP task or a clearly scoped slice of one (e.g. "T1: mapping engine operator
@@ -89,7 +91,7 @@ A task/PR is "done" when:
 
 ## Getting started (T1 / T2 scaffold)
 
-### T1 — Django + Ninja + Postgres (Luis)
+### T1 — Django + Ninja + Postgres
 
 ```bash
 cd webapp
@@ -129,7 +131,7 @@ the real target DB, not SQLite:
       - pgdata:/var/lib/postgresql/data
 ```
 
-### T2 — Django templates + HTMX + Alpine + Tailwind (Nico)
+### T2 — Django templates + HTMX + Alpine + Tailwind
 
 Node is build-time only (Tailwind), never a second running web app. 
 Vendor HTMX and Alpine as static files rather than npm-installing them:
