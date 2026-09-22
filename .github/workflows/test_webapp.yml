@@ -1,0 +1,68 @@
+name: Test Webapp
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  test-webapp:
+    name: Run tests (Django webapp)
+    runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        working-directory: ./dsa40applicationhelper/webapp
+
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: dsa40helper
+          POSTGRES_USER: dsa40helper
+          POSTGRES_PASSWORD: dev
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgres://dsa40helper:dev@localhost:5432/dsa40helper
+      # TODO: confirm settings.py reads DATABASE_URL (e.g. via dj-database-url / django-environ),
+      # or replace with the individual DB_* env vars your settings actually expect.
+
+    steps:
+    - uses: actions/checkout@v6
+    - uses: astral-sh/setup-uv@v7
+      with:
+        python-version: "3.14"
+    - name: Install dependencies
+      run: uv sync --all-extras --dev
+
+    - name: Lint (ruff)
+      run: uv run ruff check .
+
+    - name: Lint (pylint-django)
+      run: uv run pylint --load-plugins pylint_django --django-settings-module=config.settings .
+
+    - name: Dependency audit (pip-audit)
+      run: uv run pip-audit
+
+    - name: Template lint (djlint)
+      run: uv run djlint . --check
+
+    - name: Django system check
+      run: uv run python manage.py check --deploy
+
+    - name: Tests + coverage gate
+      run: |
+        uv run coverage run -m pytest
+        uv run coverage report
+    # coverage report fails the step automatically once `fail_under = 80`
+    # (configured in pyproject.toml) is not met.
+
+    - name: Build check (collectstatic dry run)
+      run: uv run python manage.py collectstatic --dry-run --noinput

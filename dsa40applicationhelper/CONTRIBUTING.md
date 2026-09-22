@@ -2,7 +2,7 @@
 
 ## Tech stack (for reference)
 
-- **Backend:** Python 3.11+, Django, Django Ninja, PostgreSQL, [uv](https://docs.astral.sh/uv/)
+- **Backend:** Python 3.14+, Django >=5.2,<6.0, Django Ninja, PostgreSQL, [uv](https://docs.astral.sh/uv/)
 - **Frontend:** Django templates, HTMX, Alpine.js, Tailwind
 - **Config:** mapping/question config is file-based (versioned JSON/YAML), loaded into
   read-only PostgreSQL tables at deploy time. Edit config as files, not in the DB directly.
@@ -15,38 +15,6 @@ behavior against old, and for T1's mapping engine port specifically. The new Dja
 lives in a sibling folder, `webapp/`. Once M1 is signed off, `backend/` and `frontend/` get
 deleted in a dedicated cleanup PR — not before.
 
-## Branching model and commit messages
-- `main` is always deployable.
-- Work happens on short-lived feature branches off `main`, with `<type>(<wp>)/<short-description>`.
-  types, based on [Conventional Commits](https://www.conventionalcommits.org/):
-  - `feat/`: new functionality
-  - `fix/`: bug fixes
-  - `chore/`: tooling, CI, dependency bumps, non-code housekeeping
-  - `docs/`: documentation
-  - `test/`: adding/fixing tests with no behavior change
-  - `refactor/`: Restructuring code with no functional change
-
-Example: `feat(t3): add email verification flow`
- 
-- No direct commits to `main` — everything goes through a PR, including work by Luis and
-  Nico on their own WPs.
-- Rebase (don't merge) your branch onto `main` before opening a PR, to keep history readable.
-- Keep branches short-lived (days, not weeks) — split large WPs (like T1) into smaller PRs
-  where possible rather than one giant branch.
-  
-## Pull requests
-
-- One PR = one WP task or a clearly scoped slice of one (e.g. "T1: mapping engine operator
-  registry" rather than all of T1 in one PR).
-- PR description should link the relevant WP (F1, T3, etc.) and briefly state what changed
-  and why.
-- At least **one review from the other developer** before merging (Luis reviews Nico's PRs
-  and vice versa) — given the two-person dev team, this is also our main way of keeping
-  both people roughly up to speed on both halves of the codebase.
-- CI must pass (lint, tests, build) before merge.
-- Squash-merge to `main` to keep a clean, readable history.
-- Delete the branch after merge.
-
 ## Definition of Done
 
 A task/PR is "done" when:
@@ -55,25 +23,46 @@ A task/PR is "done" when:
 - [ ] Automated tests cover the new behavior (unit tests minimum; integration tests for
       cross-cutting features like auth, consent, or the mapping engine)
 - [ ] `python manage.py check --deploy` passes with no new warnings, where relevant
-- [ ] No new accessibility regressions (WCAG 2.1 AA) — run axe/pa11y locally for any new UI;
-      see `docs/accessibility.md` *(TODO: create)*
-- [ ] No new security issues introduced — check against the
-      [Django deployment checklist](https://docs.djangoproject.com/en/stable/howto/deployment/checklist/)
-      and [OWASP Top 10](https://owasp.org/www-project-top-ten/) for anything touching auth,
-      file uploads, or user input
+- [ ] Accessibility requirements ([WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/)) checked 
+      consider WebAIM's [WCAG 2 Checklist](https://webaim.org/standards/wcag/checklist) 
+      and the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/);
+      run [axe-core](https://www.npmjs.com/package/axe-core) locally for any new UI;
+- [ ] Security requirements checked
+      check the [Django deployment checklist](https://docs.djangoproject.com/en/stable/howto/deployment/checklist/);
+      run snyk’s [Security Headers](https://securityheaders.com/) and/or Mozilla’s 
+      [HTTP Observatory](https://developer.mozilla.org/en-US/observatory)
+      and OWASP's [Top 10](https://top10.owasp.org/2025/0x00_2025-Introduction/) or 
+      [Cheat Sheets](https://cheatsheetseries.owasp.org/index.html) for anything touching auth,
+      file uploads, or user input;
 - [ ] Relevant docs updated (README, install guide, or inline docstrings) if behavior or
       setup steps changed
-- [ ] If the change touches the domain model (F2) or mapping config format (T1), the
-      change is reflected in the domain model doc / mapping engine design note
 
-## Code style
+## Branching model and commit messages
+- `main` is always deployable.
+- Work happens on short-lived feature branches off `main`, with `<type>/<short-description>`, e.g. `feat/case-status-machine`.
+- Commits are based on [Conventional Commits](https://www.conventionalcommits.org/):
+  - `feat`: new functionality
+  - `fix`: bug fixes
+  - `chore`: tooling, CI, dependency bumps, non-code housekeeping
+  - `docs`: documentation
+  - `test`: adding/fixing tests with no behavior change
+  - `refactor`: Restructuring code with no functional change
+ - issue referencing in commit message using `Refs:`
 
-- Python: format with `ruff format` (black-compatible style), lint with `ruff check`,
-  type-hint public functions.
-- Templates/HTMX/Alpine: keep JS logic in Alpine minimal (local UI state only — draft
-  handling, wizard step, conditional visibility, copy-to-clipboard). Mapping/transformation
-  logic stays server-side.
-- Tailwind: use existing design tokens where available; avoid one-off inline styles.
+Example:
+```feat: add email verification flow
+
+Refs: #5
+```
+ 
+- No direct commits to `main` — everything goes through a PR.
+  - One PR = one clearly scoped slice of a WP task
+  - At least **one review from the other developer** before merging
+  - CI must pass (lint, tests, build) before merge
+  - Squash-merge to `main` to keep a clean, readable history + delete the branch after merge
+- Rebase (don't merge) your branch onto `main` before opening a PR, to keep history readable.
+- Keep branches short-lived (days, not weeks) — split large WPs (like T1) into smaller PRs
+  where possible rather than one giant branch.
 
 ## Testing
 
@@ -82,12 +71,38 @@ A task/PR is "done" when:
   enforcement) need integration tests, not just unit tests.
 - Run the full test suite locally before opening a PR: `<TODO: add command once CI is set up>`
 
-## Pre-commit hooks
+## CI pipeline
 
-- `pre-commit` runs **formatting only** (`ruff format`) locally, auto-fixing on commit —
-  non-blocking, just keeps diffs clean before they hit CI.
-- Linting (`ruff check`) and the full test suite run in **CI**, and are blocking — a PR
-  can't merge if either fails.
+Defined in `.github/workflows/test_backend.yml`. Two jobs run in parallel during the
+migration:
+
+- **`test-backend`** — the existing MVP (FastAPI) test suite, unchanged. Runs until
+  `backend/` is deleted post-M1, at which point this job is removed.
+- **`test-webapp`** — the Django migration target, against a real Postgres service
+  container (matching `docker-compose.yml` credentials):
+  1. Lint: `ruff check` + `pylint-django` + `pip-audit`
+  2. Template lint: `djlint --check`
+  3. `python manage.py check --deploy`
+  4. Tests + coverage gate: `coverage run -m pytest` then `coverage report`
+     (fails once below `fail_under = 80`, set in `pyproject.toml`)
+  5. Build check: `collectstatic --dry-run`
+
+All steps in `test-webapp` are blocking for merge. Once `webapp/` becomes the primary
+backend, `test-backend` is dropped and `test-webapp` is renamed accordingly.
+
+### Pre-commit hooks
+
+- `pre-commit` runs **formatting only** locally, auto-fixing on commit, non-blocking:
+  - `ruff format` for Python
+  - `djlint --reformat` for Django templates
+
+Formatting is not re-checked in CI — only linting and the checks above.
+
+## Environments
+
+- **Local:** primary development environment until dev/staging servers are available.
+- **Dev/Staging/Prod:** tbd
+
 
 ## Getting started (T1 / T2 scaffold)
 
@@ -95,24 +110,13 @@ A task/PR is "done" when:
 
 ```bash
 cd webapp
-uv init --python 3.11
+uv init --python 3.14
 uv add django django-ninja "psycopg[binary]"
-uv add --dev ruff pytest pytest-django mypy
+uv add --dev ruff pytest pytest-django pytest-cov coverage django_coverage_plugin \
+  djlint pylint pylint-django pip-audit mypy
 
 uv run django-admin startproject config .
-uv run python manage.py startapp core   # TODO: confirm app name
-```
-
-`webapp/pyproject.toml` — carry over the existing backend's ruff config so lint rules stay
-consistent rather than drifting:
-
-```toml
-[tool.ruff.lint]
-select = ["B", "E", "F", "I", "T20"]
-ignore = ["T201"]
-
-[tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "config.settings"
+uv run python manage.py startapp dsa40 
 ```
 
 Add a local Postgres service to the root `docker-compose.yml` so development runs against
@@ -150,25 +154,5 @@ chmod +x tailwindcss
 ./tailwindcss -i ./webapp/static/src/input.css -o ./webapp/static/dist/output.css --watch
 ```
 
-### CI
-
-Extend the existing `.github/workflows/test_backend.yml` (currently `uv sync` + `pytest`
-against the old `backend/`) rather than writing a new pipeline from scratch — add a
-`ruff check` step, and once `webapp/` is the primary backend, repoint `working-directory` at
-it.
-
-## CI pipeline (skeleton — to be built out under F1)
-
-On every PR (all blocking):
-1. Lint (`ruff check`)
-2. Tests (`pytest`)
-3. Build (Django check / collectstatic dry run)
-
-Formatting (`ruff format`) is handled locally via pre-commit.
-
-## Environments
-
-- **Local:** primary development environment until dev/staging servers are available.
-- **Dev/Staging/Prod:** tbd
 
 
