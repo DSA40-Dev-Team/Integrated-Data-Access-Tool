@@ -10,6 +10,11 @@ def base_url() -> str:
     return os.environ.get("BASE_URL", "http://localhost:8000")
 
 
+@pytest.fixture(scope="session")
+def api_prefix() -> str:
+    return os.environ.get("API_PREFIX", "/api")
+
+
 @pytest.fixture
 def client(base_url: str):
     with httpx.Client(base_url=base_url, timeout=10.0) as c:
@@ -22,7 +27,7 @@ def unique_id():
 
 
 @pytest.fixture
-def vlopse(client: httpx.Client, unique_id: str):
+def vlopse(client: httpx.Client, api_prefix: str, unique_id: str):
     name = f"vlopse-test-{unique_id}"
     info = {
         "name": name,
@@ -30,7 +35,7 @@ def vlopse(client: httpx.Client, unique_id: str):
         "application_link": "https://example.invalid/apply",
         "modality": "form",
     }
-    response = client.post("api/vlopse", json={"id": name, "info": info})
-    assert response.status_code == 200
+    response = client.post(f"{api_prefix}/vlopse", json={"id": name, "info": info})
+    assert response.status_code == 200, response.text
     yield name
-    client.delete(f"api/vlopse/{name}")
+    client.delete(f"{api_prefix}/vlopse/{name}")
