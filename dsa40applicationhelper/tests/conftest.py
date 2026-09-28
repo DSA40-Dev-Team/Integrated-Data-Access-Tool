@@ -1,14 +1,18 @@
+import os
 import uuid
 
 import httpx
 import pytest
 
-BASE_URL = "http://localhost:8000"
+
+@pytest.fixture(scope="session")
+def base_url() -> str:
+    return os.environ.get("BASE_URL", "http://localhost:8000")
 
 
 @pytest.fixture
-def client():
-    with httpx.Client(base_url=BASE_URL, timeout=10.0) as c:
+def client(base_url: str):
+    with httpx.Client(base_url=base_url, timeout=10.0) as c:
         yield c
 
 
