@@ -12,8 +12,8 @@ VALID_ANSWERS = [
 ]
 
 
-def test_applicable_questions_for_known_vlopse(client: httpx.Client):
-    response = client.get("api/questions", params={"vlopse": "mastodon"})
+def test_applicable_questions_for_known_vlopse(client: httpx.Client, api_prefix: str):
+    response = client.get(f"{api_prefix}/questions", params={"vlopse": "mastodon"})
     assert response.status_code == 200
     body = response.json()
     assert isinstance(body, list)
@@ -21,19 +21,23 @@ def test_applicable_questions_for_known_vlopse(client: httpx.Client):
     assert {"first-name", "last-name", "email-inst"}.issubset(ids)
 
 
-def test_applicable_questions_requires_vlopse(client: httpx.Client):
-    response = client.get("api/questions")
+def test_applicable_questions_requires_vlopse(client: httpx.Client, api_prefix: str):
+    response = client.get(f"{api_prefix}/questions")
     assert response.status_code == 422
 
 
-def test_applicable_questions_unknown_vlopse_returns_322(client: httpx.Client):
-    response = client.get("api/questions", params={"vlopse": "does-not-exist"})
+def test_applicable_questions_unknown_vlopse_returns_322(
+    client: httpx.Client, api_prefix: str
+):
+    response = client.get(
+        f"{api_prefix}/questions", params={"vlopse": "does-not-exist"}
+    )
     assert response.status_code == 322
 
 
-def test_validate_valid_answers(client: httpx.Client):
+def test_validate_valid_answers(client: httpx.Client, api_prefix: str):
     response = client.post(
-        "api/validate",
+        f"{api_prefix}/validate",
         params={"vlopse": "mastodon"},
         json={"answers": VALID_ANSWERS},
     )
@@ -43,10 +47,10 @@ def test_validate_valid_answers(client: httpx.Client):
     assert body["errors"] == {}
 
 
-def test_validate_missing_required_answer(client: httpx.Client):
+def test_validate_missing_required_answer(client: httpx.Client, api_prefix: str):
     incomplete = [a for a in VALID_ANSWERS if a["question_id"] != "first-name"]
     response = client.post(
-        "api/validate",
+        f"{api_prefix}/validate",
         params={"vlopse": "mastodon"},
         json={"answers": incomplete},
     )
@@ -57,14 +61,14 @@ def test_validate_missing_required_answer(client: httpx.Client):
     assert "X1" in body["errors"]
 
 
-def test_validate_requires_body_and_vlopse(client: httpx.Client):
-    response = client.post("api/validate")
+def test_validate_requires_body_and_vlopse(client: httpx.Client, api_prefix: str):
+    response = client.post(f"{api_prefix}/validate")
     assert response.status_code == 422
 
 
-def test_transform_valid_answers(client: httpx.Client):
+def test_transform_valid_answers(client: httpx.Client, api_prefix: str):
     response = client.post(
-        "api/transform",
+        f"{api_prefix}/transform",
         params={"vlopse": "mastodon"},
         json={"answers": VALID_ANSWERS},
     )
@@ -81,19 +85,19 @@ def test_transform_valid_answers(client: httpx.Client):
     assert by_question["X3"]["value"] == "DEU"
 
 
-def test_transform_requires_body_and_vlopse(client: httpx.Client):
-    response = client.post("api/transform")
+def test_transform_requires_body_and_vlopse(client: httpx.Client, api_prefix: str):
+    response = client.post(f"{api_prefix}/transform")
     assert response.status_code == 422
 
 
 def test_transform_invalid_operator_input_surfaces_as_mapping_error(
-    client: httpx.Client,
+    client: httpx.Client, api_prefix: str
 ):
     answers = [a for a in VALID_ANSWERS if a["question_id"] != "org-addr-country"] + [
         {"question_id": "org-addr-country", "value": "Not A Real Country"}
     ]
     response = client.post(
-        "api/transform",
+        f"{api_prefix}/transform",
         params={"vlopse": "mastodon"},
         json={"answers": answers},
     )
@@ -104,14 +108,14 @@ def test_transform_invalid_operator_input_surfaces_as_mapping_error(
     assert by_question["X3"]["type"] == "error"
 
 
-def test_conditions_for_known_vlopse(client: httpx.Client):
-    response = client.get("api/condition", params={"vlopse": "mastodon"})
+def test_conditions_for_known_vlopse(client: httpx.Client, api_prefix: str):
+    response = client.get(f"{api_prefix}/condition", params={"vlopse": "mastodon"})
     assert response.status_code == 200
     body = response.json()
     assert "data-acc-end" in body
     assert body["data-acc-end"][0]["question_id"] == "data-acc-start"
 
 
-def test_conditions_requires_vlopse(client: httpx.Client):
-    response = client.get("api/condition")
+def test_conditions_requires_vlopse(client: httpx.Client, api_prefix: str):
+    response = client.get(f"{api_prefix}/condition")
     assert response.status_code == 422

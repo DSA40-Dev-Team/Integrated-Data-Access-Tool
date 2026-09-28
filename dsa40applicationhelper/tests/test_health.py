@@ -1,8 +1,8 @@
 import httpx
 
 
-def test_health_returns_expected_shape(client: httpx.Client):
-    response = client.get("/health")
+def test_health_returns_expected_shape(client: httpx.Client, api_prefix: str):
+    response = client.get(f"{api_prefix}/health")
     assert response.status_code == 200
     body = response.json()
     assert body["api"] == "ok"
