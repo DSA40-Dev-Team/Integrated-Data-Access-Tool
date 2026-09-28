@@ -40,6 +40,18 @@ Browse to `http://localhost:5173` to use the DSA40 Application Helper
 the source of truth for the API definition is the backend.
 In case you modify the fastapi backend, make sure to regenerate the API definitions by running `sh scripts/generate_client.sh`
 
+### Django Webapp
+
+> [!IMPORTANT]
+> Migration to Django is currently in progress.
+
+To ensure feature-parity between the current FastAPI and the future Django setup, we use a series of plain _migration tests_
+
+#### How to run
+
+- start development server in `backend`: `uv run fastapi dev`
+- run tests in `tests`: `uv run pytest`
+
 ### Troubleshooting
 
 **Missmatched node version when running frontend**
