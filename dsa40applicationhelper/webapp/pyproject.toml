@@ -1,9 +1,38 @@
+[project]
+name = "webapp"
+version = "0.1.0"
+description = "DSA40 Application Helper — Web Application"
+readme = "README.md"
+authors = [
+  { name = "Luis Glaser", email = "l.glaser@comprensio.ai" },
+  { name = "Nico Pfiffner", email = "nico@pfiffner-researchit.com" },
+]
+requires-python = ">=3.14"
+dependencies = [
+  "django>=6.1.1",
+  "django-ninja>=1.7.1",
+  "environs[django]>=15.0.1",
+]
+
+[dependency-groups]
+dev = [
+  "pre-commit>=4.6.2",
+  "pytest>=9.1.1",
+  "pytest-django>=4.11.1",
+  "pytest-cov>=6.0.0",
+  "coverage>=7.6.10",
+  "django-coverage-plugin>=3.1.0",
+  "djlint>=1.36.4",
+  "pip-audit>=2.7.3",
+  "ruff>=0.16.8",
+]
+
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "config.settings"
 
 # ==== Coverage ====
 [tool.coverage.run]
-include = ["dsa40/**"]   # TODO: update to match confirmed app name
+include = ["dsa40/**"]
 omit = [
     "*/migrations/*",
     "*/tests/*",
@@ -76,3 +105,5 @@ force-single-line = false
 
 [tool.ruff.lint.per-file-ignores]
 "test*.py" = ["SLF001", "PLR2004", "FBT003", "PT009", "S106", "PT027", "S105", "ANN"]
+"manage.py" = ["ANN201", "PLC0415", "TRY003", "EM101"]
+"config/*.py" = ["E501"]
