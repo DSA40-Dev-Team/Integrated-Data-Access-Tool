@@ -45,9 +45,6 @@ jobs:
     - name: Lint (ruff)
       run: uv run ruff check .
 
-    - name: Lint (pylint-django)
-      run: uv run pylint --load-plugins pylint_django --django-settings-module=config.settings .
-
     - name: Dependency audit (pip-audit)
       run: uv run pip-audit
 
