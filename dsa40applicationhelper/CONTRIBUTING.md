@@ -39,7 +39,8 @@ A task/PR is "done" when:
 
 ## Branching model and commit messages
 - `main` is always deployable.
-- Work happens on short-lived feature branches off `main`, with `<type>/<short-description>`, e.g. `feat/case-status-machine`.
+- `dev` should be always deployable but represents the current _working state_
+- Work happens on short-lived feature branches off `dev`, with `<type>/<short-description>`, e.g. `feat/case-status-machine`.
 - Commits are based on [Conventional Commits](https://www.conventionalcommits.org/):
   - `feat`: new functionality
   - `fix`: bug fixes
@@ -48,6 +49,7 @@ A task/PR is "done" when:
   - `test`: adding/fixing tests with no behavior change
   - `refactor`: Restructuring code with no functional change
  - issue referencing in commit message using `Refs:`
+-
 
 Example:
 ```feat: add email verification flow
@@ -55,11 +57,12 @@ Example:
 Refs: #5
 ```
  
-- No direct commits to `main` — everything goes through a PR.
+- No direct commits to `main` — everything goes through a merge commit from `dev`.
+- No direct commits to `dev`, except for dependency or version bumps
   - One PR = one clearly scoped slice of a WP task
   - At least **one review from the other developer** before merging
   - CI must pass (lint, tests, build) before merge
-  - Squash-merge to `main` to keep a clean, readable history + delete the branch after merge
+  - Squash-merge to `dev` to keep a clean, readable history + delete the branch after merge
 - Rebase (don't merge) your branch onto `main` before opening a PR, to keep history readable.
 - Keep branches short-lived (days, not weeks) — split large WPs (like T1) into smaller PRs
   where possible rather than one giant branch.
