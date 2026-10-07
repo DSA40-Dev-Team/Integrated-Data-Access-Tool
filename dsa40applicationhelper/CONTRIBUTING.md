@@ -23,15 +23,15 @@ A task/PR is "done" when:
 - [ ] Automated tests cover the new behavior (unit tests minimum; integration tests for
       cross-cutting features like auth, consent, or the mapping engine)
 - [ ] `python manage.py check --deploy` passes with no new warnings, where relevant
-- [ ] Accessibility requirements ([WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/)) checked 
-      consider WebAIM's [WCAG 2 Checklist](https://webaim.org/standards/wcag/checklist) 
+- [ ] Accessibility requirements ([WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/)) checked
+      consider WebAIM's [WCAG 2 Checklist](https://webaim.org/standards/wcag/checklist)
       and the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/);
       run [axe-core](https://www.npmjs.com/package/axe-core) locally for any new UI;
 - [ ] Security requirements checked
       check the [Django deployment checklist](https://docs.djangoproject.com/en/stable/howto/deployment/checklist/);
-      run snyk’s [Security Headers](https://securityheaders.com/) and/or Mozilla’s 
+      run snyk’s [Security Headers](https://securityheaders.com/) and/or Mozilla’s
       [HTTP Observatory](https://developer.mozilla.org/en-US/observatory)
-      and OWASP's [Top 10](https://top10.owasp.org/2025/0x00_2025-Introduction/) or 
+      and OWASP's [Top 10](https://top10.owasp.org/2025/0x00_2025-Introduction/) or
       [Cheat Sheets](https://cheatsheetseries.owasp.org/index.html) for anything touching auth,
       file uploads, or user input;
 - [ ] Relevant docs updated (README, install guide, or inline docstrings) if behavior or
@@ -54,7 +54,7 @@ Example:
 
 Refs: #5
 ```
- 
+
 - No direct commits to `main` — everything goes through a PR.
   - One PR = one clearly scoped slice of a WP task
   - At least **one review from the other developer** before merging
@@ -80,7 +80,7 @@ migration:
   `backend/` is deleted post-M1, at which point this job is removed.
 - **`test-webapp`** — the Django migration target, against a real Postgres service
   container (matching `docker-compose.yml` credentials):
-  1. Lint: `ruff check` + `pylint-django` + `pip-audit`
+  1. Lint: `ruff check` + `pip-audit`
   2. Template lint: `djlint --check`
   3. `python manage.py check --deploy`
   4. Tests + coverage gate: `coverage run -m pytest` then `coverage report`
@@ -113,10 +113,10 @@ cd webapp
 uv init --python 3.14
 uv add django django-ninja "psycopg[binary]"
 uv add --dev ruff pytest pytest-django pytest-cov coverage django_coverage_plugin \
-  djlint pylint pylint-django pip-audit mypy
+  djlint pip-audit mypy
 
 uv run django-admin startproject config .
-uv run python manage.py startapp dsa40 
+uv run python manage.py startapp dsa40
 ```
 
 Add a local Postgres service to the root `docker-compose.yml` so development runs against
@@ -137,7 +137,7 @@ the real target DB, not SQLite:
 
 ### T2 — Django templates + HTMX + Alpine + Tailwind
 
-Node is build-time only (Tailwind), never a second running web app. 
+Node is build-time only (Tailwind), never a second running web app.
 Vendor HTMX and Alpine as static files rather than npm-installing them:
 
 ```bash
@@ -153,6 +153,3 @@ curl -sL https://github.com/tailwindlabs/tailwindcss/releases/latest/download/ta
 chmod +x tailwindcss
 ./tailwindcss -i ./webapp/static/src/input.css -o ./webapp/static/dist/output.css --watch
 ```
-
-
-
