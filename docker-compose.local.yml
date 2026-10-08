@@ -1,7 +1,7 @@
 volumes:
   idat_local_postgres_data: {}
   idat_local_postgres_data_backups: {}
-  
+
 
 services:
   django:
