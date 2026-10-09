@@ -49,6 +49,12 @@ repos:
       - id: djlint-reformat-django
       - id: djlint-django
 
+  # Run audit
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.10.1
+    hooks:
+      -   id: pip-audit
+
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
   autoupdate_schedule: weekly
